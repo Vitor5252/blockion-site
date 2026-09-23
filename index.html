@@ -3,159 +3,382 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Minuz — Privacidade e Suporte</title>
+<title>Minuz — Privacidade, Termos e Suporte</title>
 <style>
-  :root{color-scheme:light dark}
-  body{max-width:720px;margin:0 auto;padding:40px 22px 80px;
-       font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-       color:#1a1a1a;background:#fff}
-  @media (prefers-color-scheme:dark){body{color:#e8e8e8;background:#131313}}
-  h1{font-size:28px;margin:0 0 6px}
-  h2{font-size:18px;margin:34px 0 10px}
-  .date{color:#777;font-size:14px;margin-bottom:28px}
-  ul{padding-left:20px}
-  li{margin-bottom:7px}
-  strong{font-weight:600}
-  hr{border:0;border-top:1px solid #ddd;margin:34px 0}
-  @media (prefers-color-scheme:dark){hr{border-top-color:#333}}
-  a{color:#0a7c66}
+  :root{color-scheme:light dark;--ink:#16181a;--mut:#6b7280;--bg:#fff;--line:#e5e7eb;--acc:#0b7a63;--box:#f6f7f8}
+  @media (prefers-color-scheme:dark){:root{--ink:#e9eaec;--mut:#9aa1a9;--bg:#101214;--line:#282c30;--acc:#5fc7ac;--box:#191c1f}}
+  *{box-sizing:border-box}
+  body{max-width:760px;margin:0 auto;padding:36px 22px 90px;background:var(--bg);color:var(--ink);
+       font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  h1{font-size:27px;margin:0 0 6px;letter-spacing:-.02em}
+  h2{font-size:19px;margin:32px 0 8px;letter-spacing:-.01em}
+  h3{font-size:16px;margin:20px 0 6px}
+  .date{color:var(--mut);font-size:14px;margin:0 0 6px}
+  nav{background:var(--box);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:22px 0 34px}
+  nav a{display:inline-block;margin-right:16px;color:var(--acc);text-decoration:none;font-size:15px;font-weight:600}
+  nav a:hover{text-decoration:underline}
+  ul{padding-left:20px;margin:8px 0 14px}
+  li{margin-bottom:6px}
+  p{margin:0 0 12px}
+  a{color:var(--acc)}
+  hr{border:0;border-top:1px solid var(--line);margin:46px 0}
+  .box{background:var(--box);border:1px solid var(--line);border-left:3px solid var(--acc);
+       border-radius:6px;padding:16px 18px;margin:16px 0}
+  .box p:last-child{margin-bottom:0}
+  .warn{border-left-color:#c2410c}
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
+  code{background:var(--box);padding:1px 5px;border-radius:4px;font-size:.9em}
 </style>
 </head>
 <body>
-<h1>Política de Privacidade</h1>
-<p class="date">Minuz · Última atualização: 23 de setembro de 2026 &nbsp;·&nbsp; <a href="#suporte">Ir para Suporte</a></p>
 
-<p>Esta política explica quais dados o Minuz trata e como. A regra que guia
-todo o app é simples: <strong>o que não precisa sair do seu iPhone, não
-sai.</strong></p>
+<h1>Minuz</h1>
+<p class="date">Política de Privacidade, Termos de Uso e Suporte<br>
+Última atualização: 23 de setembro de 2026 · Vigência: 23 de setembro de 2026</p>
 
-<h2>O que NÃO coletamos</h2>
+<nav>
+  <a href="#privacidade">Privacidade</a>
+  <a href="#termos">Termos de Uso</a>
+  <a href="#suporte">Suporte</a>
+</nav>
+
+<!-- ============ PRIVACIDADE ============ -->
+<h1 id="privacidade">Política de Privacidade</h1>
+
+<p>Esta Política descreve como o aplicativo Minuz ("Minuz", "app", "nós")
+coleta, usa, compartilha e protege seus dados. Estamos em conformidade com a
+Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).</p>
+
+<h2>1. Quem somos</h2>
+<p>O Minuz é desenvolvido e operado por <strong>Vitor Vasconcellos Dias</strong>,
+pessoa física, com contato pelo e-mail
+<a href="mailto:vitorvasconcellosdias65@gmail.com">vitorvasconcellosdias65@gmail.com</a>.
+Para fins da LGPD, atuamos como <strong>controlador</strong> dos seus dados.</p>
+
+<h2>2. O que o Minuz NÃO consegue ver</h2>
+<div class="box">
+<p><strong>Quais apps você bloqueou.</strong> O bloqueio usa o Tempo de Uso da
+Apple (Family Controls). A Apple entrega a sua seleção em forma de códigos
+anônimos e opacos. Não conseguimos ler o nome nem o identificador de nenhum
+app — mesmo que quiséssemos. Esses códigos ficam guardados apenas no seu
+aparelho.</p>
+<p><strong>Quanto tempo você passa em cada app.</strong> Não solicitamos o
+direito de acesso a dados de uso (<code>app-and-website-usage</code>) e não
+temos acesso ao seu relatório de Tempo de Uso.</p>
+</div>
+
+<h2>3. Dados que coletamos</h2>
+<p>Coletamos o mínimo necessário para o app funcionar. A maior parte das suas
+informações fica salva no seu próprio aparelho.</p>
+
+<h3>Ficam no seu aparelho</h3>
 <ul>
-  <li><strong>Quais apps você bloqueia.</strong> A Apple entrega essa seleção
-  em forma de códigos anônimos (tokens). Não conseguimos ler o nome nem o
-  identificador de nenhum app, mesmo que quiséssemos. Esses códigos ficam
-  guardados apenas no seu aparelho.</li>
-  <li><strong>Quanto tempo você usa cada app.</strong> Não solicitamos e não
-  temos acesso aos seus dados de uso do Tempo de Uso.</li>
-  <li><strong>Seu histórico de navegação.</strong></li>
-  <li><strong>Sua localização.</strong></li>
-  <li><strong>Sua lista de contatos.</strong></li>
-</ul>
-
-<h2>O que fica só no seu iPhone</h2>
-<ul>
-  <li>A seleção de apps e sites bloqueados</li>
+  <li>A seleção de apps, categorias e sites bloqueados (em forma de códigos opacos)</li>
+  <li>Respostas do onboarding — seus objetivos e hábitos escolhidos</li>
   <li>Seu saldo de minutos e o horário em que o bloqueio volta</li>
-  <li>Seu histórico de hábitos e sua sequência de dias</li>
-  <li>Suas preferências e configurações</li>
+  <li>Histórico de hábitos cumpridos e sua sequência de dias</li>
+  <li>Preferências e configurações do app</li>
 </ul>
-<p>Esses dados são apagados quando você desinstala o app.</p>
 
-<h2>O que enviamos para nossos servidores</h2>
+<h3>São enviados aos nossos servidores</h3>
 <ul>
-  <li><strong>Um identificador anônimo</strong>, criado pelo app, usado para
-  guardar seu progresso e restaurar sua assinatura se você trocar de
-  aparelho. Ele não está ligado ao seu nome, e-mail ou telefone.</li>
-  <li><strong>O saldo de minutos e a sequência de dias</strong>, para que você
-  não perca o progresso ao trocar de iPhone.</li>
-  <li><strong>Estatísticas de uso do próprio Minuz</strong> em forma agregada
-  (telas abertas, hábitos concluídos, erros), para melhorar o app.</li>
+  <li><strong>Identificador anônimo</strong> criado pelo app, usado para guardar
+  seu progresso e restaurar sua assinatura ao trocar de aparelho. Não está
+  ligado ao seu nome, e-mail ou telefone.</li>
+  <li><strong>Saldo de minutos e sequência de dias</strong>, para que você não
+  perca o progresso ao trocar de iPhone.</li>
+  <li><strong>Status da assinatura</strong> (ativa ou expirada). Os dados de
+  pagamento ficam com a Apple — o Minuz nunca tem acesso ao seu cartão.</li>
+  <li><strong>Dados técnicos</strong>: modelo do aparelho, versão do iOS,
+  idioma e fuso horário, para diagnóstico de falhas.</li>
+  <li><strong>Eventos de uso anônimos</strong>: telas visitadas e ações
+  realizadas dentro do Minuz, sem identificação pessoal.</li>
+  <li><strong>Token de notificação</strong>, apenas se você autorizar
+  notificações.</li>
 </ul>
 
-<h2>Saúde e atividade física</h2>
+<h3>Nunca coletamos</h3>
+<p>E-mail, dados bancários, número de cartão, localização, agenda de contatos,
+microfone, sua galeria de fotos, ou qualquer dado de uso dos apps que você
+bloqueou.</p>
+
+<h2>4. Saúde e atividade física</h2>
 <p>Se você escolher um hábito de caminhada ou treino, o Minuz pede permissão
-para ler dados do app Saúde (passos e treinos). <strong>Esses dados são lidos
-no seu iPhone e usados apenas para confirmar que o hábito foi cumprido. Eles
-nunca são enviados para nossos servidores nem compartilhados com
-terceiros.</strong> Você pode revogar essa permissão a qualquer momento em
-Ajustes &rsaquo; Saúde &rsaquo; Acesso a Dados e Dispositivos.</p>
+para ler dados do app Saúde (passos e treinos).</p>
+<div class="box">
+<p>Esses dados são lidos <strong>dentro do seu iPhone</strong> e usados apenas
+para confirmar que o hábito foi cumprido. <strong>Nunca são enviados aos
+nossos servidores, nunca são compartilhados com terceiros e nunca são usados
+para publicidade.</strong> Você pode revogar essa permissão a qualquer momento
+em Ajustes &rsaquo; Saúde &rsaquo; Acesso a Dados e Dispositivos.</p>
+</div>
 
-<h2>Fotos</h2>
-<p>Alguns hábitos podem ser confirmados por foto. Quando isso acontece:</p>
+<h2>5. Câmera e fotos</h2>
+<p>Alguns hábitos podem ser confirmados por foto. Isso é <strong>sempre
+opcional</strong> — há hábitos que não usam câmera, e você nunca é obrigado a
+escolher um que use.</p>
+<p>Quando você usa um hábito com foto:</p>
 <ul>
-  <li>A foto é tirada na hora, pela câmera do app. Nunca acessamos sua galeria.</li>
-  <li>A imagem é enviada para um serviço de análise automática apenas para
-  verificar se corresponde ao hábito escolhido.</li>
+  <li>A foto é <strong>tirada na hora</strong>, pela câmera dentro do app.
+  Nunca acessamos a sua galeria.</li>
+  <li>A imagem é enviada a um serviço de análise automática
+  (<strong>Google Gemini</strong>) apenas para verificar se corresponde ao
+  hábito escolhido.</li>
   <li><strong>A foto é descartada imediatamente após a verificação.</strong>
-  Não guardamos a imagem. Registramos apenas o resultado (aprovado ou não) e o
-  horário.</li>
-  <li>Você sempre pode escolher um hábito que não use câmera.</li>
+  Não armazenamos a imagem em nenhum momento.</li>
+  <li>Guardamos apenas o resultado (aprovado ou não), o hábito e o horário.</li>
+  <li>As imagens <strong>não são usadas para treinar modelos de
+  inteligência artificial.</strong></li>
+  <li>Antes da primeira foto, pedimos seu consentimento específico e
+  explicamos o que acontece com ela.</li>
 </ul>
 
-<h2>Assinaturas</h2>
-<p>As compras são processadas pela Apple. Nós não recebemos e não temos acesso
-ao seu cartão de crédito ou dados de pagamento. Usamos o RevenueCat para
-gerenciar o estado da assinatura; ele recebe apenas o identificador anônimo da
-compra.</p>
-
-<h2>Com quem compartilhamos</h2>
-<p>Não vendemos seus dados. Não fazemos publicidade direcionada. Usamos apenas
-os prestadores necessários para o app funcionar:</p>
+<h2>6. Como usamos seus dados</h2>
 <ul>
-  <li><strong>Apple</strong> — processamento das compras</li>
-  <li><strong>Google Firebase</strong> — armazenamento do progresso, relatórios
-  de falha e estatísticas agregadas</li>
-  <li><strong>RevenueCat</strong> — controle do estado da assinatura</li>
-  <li><strong>Google Gemini</strong> — verificação automática de fotos, quando
-  você usa um hábito com câmera. As imagens não são armazenadas nem usadas
-  para treinar modelos.</li>
+  <li>Fazer o app funcionar: aplicar e remover o bloqueio, guardar seu saldo de minutos</li>
+  <li>Verificar se um hábito foi cumprido</li>
+  <li>Restaurar seu progresso ao trocar de aparelho</li>
+  <li>Validar sua assinatura junto à Apple e ao RevenueCat</li>
+  <li>Enviar notificações de lembrete, apenas se você autorizar</li>
+  <li>Diagnosticar falhas técnicas e melhorar o app</li>
+  <li>Prevenir fraudes na concessão de minutos</li>
+  <li>Cumprir obrigações legais</li>
 </ul>
 
-<h2>Menores de idade</h2>
-<p>O Minuz não é direcionado a menores de 13 anos e não coleta
-intencionalmente dados de crianças. Usuários entre 13 e 18 anos devem usar o
-app com o conhecimento de um responsável.</p>
+<h2>7. Compartilhamento com terceiros</h2>
+<p>Compartilhamos dados estritamente operacionais com os seguintes
+processadores:</p>
+<ul>
+  <li><strong>Apple (App Store / StoreKit)</strong> — processa a compra da assinatura</li>
+  <li><strong>RevenueCat</strong> — valida os recibos da Apple e gerencia o status da assinatura</li>
+  <li><strong>Google Firebase</strong> — guarda o progresso, envia notificações, relatórios de falha e estatísticas agregadas</li>
+  <li><strong>Google Gemini</strong> — verificação automática de fotos, quando você usa um hábito com câmera</li>
+</ul>
+<p><strong>Nunca vendemos seus dados. Nunca compartilhamos com anunciantes ou
+redes sociais.</strong></p>
 
-<h2>Seus direitos (LGPD)</h2>
-<p>Você pode pedir a qualquer momento: confirmação de tratamento, acesso aos
-seus dados, correção, anonimização ou <strong>exclusão da sua conta e de todos
-os dados associados</strong>. A exclusão também está disponível dentro do app,
-em Ajustes &rsaquo; Conta &rsaquo; Excluir conta.</p>
+<h2>8. Base legal (LGPD)</h2>
+<ul>
+  <li><strong>Execução de contrato (Art. 7º, V)</strong> — processar o pagamento e entregar o serviço</li>
+  <li><strong>Consentimento (Art. 7º, I)</strong> — notificações, acesso ao app Saúde, uso da câmera e estatísticas opcionais. Você pode revogar a qualquer momento</li>
+  <li><strong>Legítimo interesse (Art. 7º, IX)</strong> — diagnóstico de falhas e prevenção a fraudes</li>
+  <li><strong>Cumprimento de obrigação legal (Art. 7º, II)</strong> — quando exigido por autoridade competente</li>
+</ul>
 
-<h2>Mudanças</h2>
-<p>Se esta política mudar de forma relevante, avisaremos dentro do app antes
-de a mudança entrar em vigor.</p>
+<h2>9. Armazenamento e segurança</h2>
+<p>A maior parte dos seus dados fica salva no seu próprio aparelho. Os dados
+mínimos processados pelos parceiros acima ficam em servidores nos Estados
+Unidos, com criptografia em trânsito (HTTPS/TLS 1.2+) e em repouso. Aplicamos
+boas práticas de segurança, mas nenhum sistema é 100% imune — em caso de
+incidente relevante, você será notificado conforme a LGPD.</p>
 
+<h2>10. Retenção</h2>
+<ul>
+  <li><strong>Dados no aparelho:</strong> removidos quando você desinstala o app</li>
+  <li><strong>Fotos de verificação:</strong> não são retidas — descartadas logo após a análise</li>
+  <li><strong>Progresso no servidor:</strong> mantido enquanto sua conta existir; apagado em até 30 dias após o pedido de exclusão</li>
+  <li><strong>Dados de assinatura:</strong> seguem a política de retenção da Apple e do RevenueCat, e exigências legais de prevenção a fraude (até 5 anos)</li>
+</ul>
+
+<h2>11. Seus direitos como titular (LGPD Art. 18)</h2>
+<p>A qualquer momento, você pode:</p>
+<ul>
+  <li>Confirmar se tratamos seus dados</li>
+  <li>Acessar uma cópia dos seus dados</li>
+  <li>Corrigir dados incompletos, inexatos ou desatualizados</li>
+  <li>Solicitar a anonimização, bloqueio ou eliminação</li>
+  <li>Revogar o consentimento</li>
+  <li><strong>Apagar sua conta e todos os dados associados</strong> — dentro do app, em Ajustes &rsaquo; Conta &rsaquo; Excluir conta</li>
+</ul>
+<p>Para exercer qualquer desses direitos, escreva para
+<a href="mailto:vitorvasconcellosdias65@gmail.com">vitorvasconcellosdias65@gmail.com</a>.
+Respondemos em até <strong>15 dias úteis</strong>.</p>
+
+<h2>12. Idade mínima</h2>
+<p>O Minuz é destinado a maiores de 18 anos. Não coletamos intencionalmente
+dados de menores de idade. Se identificarmos dados de um menor, eles serão
+eliminados.</p>
+
+<h2>13. Cookies e rastreadores</h2>
+<p>O Minuz é um aplicativo nativo iOS — não usa cookies. <strong>Não usamos o
+IDFA</strong> (Identifier for Advertisers) e não rastreamos você entre apps ou
+sites de terceiros.</p>
+
+<h2>14. Mudanças nesta política</h2>
+<p>Podemos atualizar esta política sempre que necessário. Em caso de mudanças
+relevantes, avisaremos dentro do app antes de a mudança entrar em vigor. A
+versão sempre disponível aqui é a vigente.</p>
 
 <hr>
+
+<!-- ============ TERMOS ============ -->
+<h1 id="termos">Termos de Uso</h1>
+
+<p>Estes Termos de Uso ("Termos") regulam o uso do aplicativo Minuz. Ao baixar,
+instalar ou usar o app, você concorda com estes Termos. Se não concorda, por
+favor não use o app.</p>
+
+<h2>1. Sobre o Minuz</h2>
+<p>O Minuz é um aplicativo de autocontrole e bem-estar digital. Ele bloqueia,
+no seu próprio aparelho e por sua escolha, os aplicativos e sites que você
+selecionar, e libera o acesso por um tempo determinado quando você cumpre um
+hábito — caminhada, sessão de foco, treino ou tarefa confirmada por foto.</p>
+
+<div class="box warn">
+<p><strong>⚠ Importante — não é tratamento médico.</strong> O Minuz não é
+serviço de saúde, terapia, aconselhamento psicológico ou tratamento clínico.
+As ferramentas oferecidas não substituem atendimento profissional
+especializado e não diagnosticam nem tratam nenhuma condição.</p>
+<p>Se você ou alguém próximo enfrenta sofrimento psíquico intenso ou
+pensamentos de automutilação ou suicídio, procure ajuda imediatamente:</p>
+<p>• <strong>CVV — Centro de Valorização da Vida</strong>: ligue <strong>188</strong> (24h, gratuito) ou acesse cvv.org.br<br>
+• <strong>CAPS (SUS)</strong>: procure o Centro de Atenção Psicossocial mais próximo — atendimento gratuito<br>
+• <strong>Emergência</strong>: SAMU 192</p>
+</div>
+
+<h2>2. Elegibilidade</h2>
+<p>Você precisa ter pelo menos <strong>18 anos</strong> para usar o Minuz. Ao
+usar o app, você declara que tem idade legal e capacidade civil para aceitar
+estes Termos.</p>
+
+<h2>3. Requisitos técnicos</h2>
+<p>O Minuz funciona em iPhone com <strong>iOS 16 ou superior</strong>. Para
+bloquear apps, ele depende do recurso <strong>Tempo de Uso</strong> da Apple,
+que exige um código de bloqueio configurado no aparelho e uma conta iCloud
+ativa. O iOS permite apenas <strong>um</strong> aplicativo de controle de tela
+autorizado por aparelho ao mesmo tempo.</p>
+
+<h2>4. Bloqueio de apps</h2>
+<p>Você escolhe quais apps e sites quer bloquear. O bloqueio é executado pelo
+próprio sistema operacional, dentro do seu iPhone. O Minuz não escolhe apps
+por você e não enxerga quais apps você bloqueou.</p>
+<p>O Minuz é uma ferramenta de <strong>autocontrole individual</strong>. Não é
+destinado a controle parental sobre terceiros nem a uso em contexto
+organizacional ou corporativo.</p>
+
+<h2>5. Assinatura</h2>
+<p>O Minuz funciona por assinatura. <strong>É necessária uma assinatura ativa
+para usar o app.</strong> Os planos e valores são exibidos dentro do app,
+antes da compra, com o preço e o período de renovação visíveis na mesma tela
+do botão de compra.</p>
+
+<h3>5.1. Renovação automática</h3>
+<p>A assinatura é renovada automaticamente ao fim de cada período. O valor é
+cobrado pela Apple no método de pagamento associado ao seu Apple ID, a menos
+que você cancele pelo menos 24 horas antes da data de renovação.</p>
+
+<h3>5.2. Como cancelar</h3>
+<p>Ajustes do iPhone &rsaquo; seu nome &rsaquo; Assinaturas &rsaquo; Minuz
+&rsaquo; Cancelar Assinatura. Você também pode cancelar em
+apps.apple.com/account/subscriptions.</p>
+
+<h3>5.3. Reembolso</h3>
+<p>Reembolsos são processados <strong>exclusivamente pela Apple</strong>,
+conforme a política da App Store. Solicite em reportaproblem.apple.com. O Minuz
+não tem como conceder reembolso direto.</p>
+
+<h3>5.4. Restaurar compras</h3>
+<p>Se você trocou de iPhone ou reinstalou o app, use o botão "Restaurar
+compras" na tela de assinatura — desde que esteja logado no mesmo Apple ID que
+fez a compra.</p>
+
+<h2>6. Uso aceitável</h2>
+<p>Você concorda em:</p>
+<ul>
+  <li>Não usar o app para fins ilegais ou prejudiciais</li>
+  <li>Não tentar fazer engenharia reversa, descompilar ou contornar mecanismos de proteção</li>
+  <li>Não fraudar a verificação de hábitos, inclusive por meio de imagens falsas, automações ou manipulação do relógio do aparelho</li>
+  <li>Não automatizar ações nem sobrecarregar os serviços</li>
+</ul>
+<p>Podemos suspender ou encerrar o acesso de quem descumprir estas regras.</p>
+
+<h2>7. Sobre atividade física</h2>
+<p>O Minuz não é profissional de saúde e não substitui orientação médica ou de
+educação física. Faça os exercícios no seu limite, respeitando o seu corpo. Se
+você tem alguma condição de saúde ou dúvida, procure um profissional antes de
+começar. Você é responsável por praticar com segurança.</p>
+
+<h2>8. Propriedade intelectual</h2>
+<p>Todo o conteúdo do app — incluindo o nome Minuz, logotipo, identidade
+visual, textos, design, ícones e código — pertence a Vitor Vasconcellos Dias e
+é protegido pela legislação de propriedade intelectual (Lei nº 9.610/98 e Lei
+nº 9.279/96). O uso do app concede a você uma licença pessoal, intransferível,
+não exclusiva e revogável, sem qualquer outro direito.</p>
+
+<h2>9. Limitação de responsabilidade</h2>
+<p>O Minuz é fornecido "como está" e "conforme disponível". Fazemos o nosso
+melhor para que funcione bem, mas <strong>não garantimos que será livre de
+erros, ininterrupto, nem que produzirá qualquer resultado específico.</strong>
+Em particular, não garantimos que você vai reduzir seu tempo de tela — isso
+depende de você.</p>
+<p>O bloqueio depende de recursos do sistema operacional da Apple que estão
+fora do nosso controle. Falhas, atualizações do iOS ou alterações nas
+permissões do aparelho podem afetar o funcionamento.</p>
+<p>Na máxima extensão permitida em lei, Vitor Vasconcellos Dias não se
+responsabiliza por danos indiretos, lucros cessantes, perda de dados ou
+consequências de decisões tomadas com base no conteúdo do app.</p>
+
+<h2>10. Modificações</h2>
+<p>Podemos modificar estes Termos a qualquer momento. Mudanças significativas
+serão comunicadas no app com antecedência razoável. O uso continuado após a
+mudança equivale a aceitação dos novos Termos.</p>
+
+<h2>11. Encerramento</h2>
+<p>Você pode parar de usar o Minuz quando quiser, desinstalando o app e
+cancelando a assinatura na App Store. Podemos encerrar ou suspender o acesso
+em caso de descumprimento destes Termos.</p>
+
+<h2>12. Lei aplicável e foro</h2>
+<p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica
+eleito o foro da comarca do domicílio do usuário no Brasil para dirimir
+quaisquer dúvidas, sem prejuízo das normas consumeristas aplicáveis.</p>
+
+<hr>
+
+<!-- ============ SUPORTE ============ -->
 <h1 id="suporte">Suporte</h1>
 <p>Problema com o app, dúvida sobre a assinatura ou pedido sobre seus dados?
-Escreva para <a href="mailto:vitorvasconcellosdias65@gmail.com">vitorvasconcellosdias65@gmail.com</a>.
+Escreva para
+<a href="mailto:vitorvasconcellosdias65@gmail.com">vitorvasconcellosdias65@gmail.com</a>.
 Respondemos em até 2 dias úteis.</p>
 
 <h2>Perguntas frequentes</h2>
 
-<p><strong>O bloqueio não está funcionando.</strong><br>
-Verifique em Ajustes &rsaquo; Tempo de Uso se a permissão do Minuz continua
-ativa. Se o seu iPhone tiver outro app de controle de tela instalado, apenas
-um pode estar autorizado por vez.</p>
+<h3>O bloqueio não está funcionando</h3>
+<p>Verifique em Ajustes &rsaquo; Tempo de Uso se a permissão do Minuz continua
+ativa. Se você tiver outro app de controle de tela instalado, apenas um pode
+estar autorizado por vez no iPhone.</p>
 
-<p><strong>Aparece "outro app já está autorizado".</strong><br>
-O iOS permite apenas um app de controle de tela autorizado por aparelho.
+<h3>Aparece "outro app já está autorizado"</h3>
+<p>O iOS permite apenas um app de controle de tela autorizado por aparelho.
 Remova a autorização do outro app em Ajustes &rsaquo; Tempo de Uso e tente de
 novo.</p>
 
-<p><strong>Meus apps sumiram da lista de bloqueados.</strong><br>
-O iOS às vezes invalida a seleção. Abra o Minuz e escolha os apps de novo —
+<h3>Meus apps sumiram da lista de bloqueados</h3>
+<p>O iOS às vezes invalida a seleção. Abra o Minuz e escolha os apps de novo —
 leva alguns segundos.</p>
 
-<p><strong>Como cancelo a assinatura?</strong><br>
-Ajustes &rsaquo; seu nome &rsaquo; Assinaturas &rsaquo; Minuz &rsaquo;
+<h3>Cumpri o hábito e não ganhei os minutos</h3>
+<p>Confira se a permissão do app Saúde está ativa (para caminhada e treino) e
+se o app estava aberto durante o cronômetro (para sessões de foco). Se o
+problema continuar, escreva para o e-mail acima com o horário aproximado.</p>
+
+<h3>Como cancelo a assinatura?</h3>
+<p>Ajustes &rsaquo; seu nome &rsaquo; Assinaturas &rsaquo; Minuz &rsaquo;
 Cancelar assinatura. O cancelamento é feito pela Apple, não por nós.</p>
 
-<p><strong>Quero apagar minha conta e meus dados.</strong><br>
-Dentro do app: Ajustes &rsaquo; Conta &rsaquo; Excluir conta. Ou escreva para
-o e-mail acima.</p>
+<h3>Quero apagar minha conta e meus dados</h3>
+<p>Dentro do app: Ajustes &rsaquo; Conta &rsaquo; Excluir conta. Ou escreva
+para o e-mail acima.</p>
 
-<p><strong>Quais iPhones funcionam?</strong><br>
-iPhone com iOS 16 ou superior. O app precisa da permissão de Tempo de Uso, que
-exige um código de bloqueio configurado e uma conta iCloud ativa.</p>
+<h3>Quais iPhones funcionam?</h3>
+<p>iPhone com iOS 16 ou superior, com código de bloqueio configurado e conta
+iCloud ativa.</p>
 
-<hr>
-<h2>Contato</h2>
-<p>Dúvidas ou pedidos sobre seus dados:<br>
-<a href="mailto:vitorvasconcellosdias65@gmail.com">vitorvasconcellosdias65@gmail.com</a></p>
-<p style="color:#888;font-size:13px">Responsável pelo tratamento: Vitor
-Vasconcellos.</p>
+<footer>
+Minuz · Vitor Vasconcellos Dias<br>
+<a href="mailto:vitorvasconcellosdias65@gmail.com">vitorvasconcellosdias65@gmail.com</a>
+</footer>
+
 </body>
 </html>
