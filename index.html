@@ -2,383 +2,321 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Blockion | Privacidade, Termos e Suporte</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockion — Termos e Privacidade</title>
 <style>
-  :root{color-scheme:light dark;--ink:#16181a;--mut:#6b7280;--bg:#fff;--line:#e5e7eb;--acc:#0b7a63;--box:#f6f7f8}
-  @media (prefers-color-scheme:dark){:root{--ink:#e9eaec;--mut:#9aa1a9;--bg:#101214;--line:#282c30;--acc:#5fc7ac;--box:#191c1f}}
+  :root{--fundo:#060B0A;--superficie:#111A18;--borda:#1E2A27;--acento:#3FE0B0;--sec:#8FA39E;--texto:#C7D4D0}
   *{box-sizing:border-box}
-  body{max-width:760px;margin:0 auto;padding:36px 22px 90px;background:var(--bg);color:var(--ink);
-       font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-  h1{font-size:27px;margin:0 0 6px;letter-spacing:-.02em}
-  h2{font-size:19px;margin:32px 0 8px;letter-spacing:-.01em}
-  h3{font-size:16px;margin:20px 0 6px}
-  .date{color:var(--mut);font-size:14px;margin:0 0 6px}
-  nav{background:var(--box);border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:22px 0 34px}
-  nav a{display:inline-block;margin-right:16px;color:var(--acc);text-decoration:none;font-size:15px;font-weight:600}
-  nav a:hover{text-decoration:underline}
-  ul{padding-left:20px;margin:8px 0 14px}
-  li{margin-bottom:6px}
-  p{margin:0 0 12px}
-  a{color:var(--acc)}
-  hr{border:0;border-top:1px solid var(--line);margin:46px 0}
-  .box{background:var(--box);border:1px solid var(--line);border-left:3px solid var(--acc);
-       border-radius:6px;padding:16px 18px;margin:16px 0}
-  .box p:last-child{margin-bottom:0}
-  .warn{border-left-color:#c2410c}
-  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:14px}
-  code{background:var(--box);padding:1px 5px;border-radius:4px;font-size:.9em}
+  body{margin:0;background:var(--fundo);color:var(--texto);line-height:1.6;
+       font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+  .caixa{max-width:720px;margin:0 auto;padding:40px 20px 80px}
+  h1{color:#fff;font-size:29px;line-height:1.15;letter-spacing:-.8px;margin:44px 0 6px}
+  h1:first-of-type{margin-top:0}
+  h2{color:#fff;font-size:18px;margin:30px 0 9px;letter-spacing:-.3px}
+  p,li{font-size:15.5px}
+  a{color:var(--acento)}
+  .data{color:#5B6B67;font-size:13.5px;margin:0 0 26px}
+  .abas{display:flex;gap:8px;margin:0 0 30px;flex-wrap:wrap;position:sticky;top:0;
+        background:var(--fundo);padding:14px 0;z-index:2}
+  .abas button{font:inherit;font-size:14px;font-weight:600;cursor:pointer;background:var(--superficie);
+    color:var(--sec);border:1px solid var(--borda);border-radius:999px;padding:8px 16px}
+  .abas button[aria-selected="true"]{background:var(--acento);color:#04100C;border-color:var(--acento)}
+  .destaque{background:rgba(63,224,176,.08);border:1px solid var(--acento);border-radius:14px;
+            padding:14px 18px;margin:20px 0}
+  .destaque p{margin:0;color:#fff}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14.5px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--borda);vertical-align:top}
+  th{color:#fff;font-weight:700}
+  [hidden]{display:none!important}
+  footer{color:#5B6B67;font-size:13px;margin-top:46px;border-top:1px solid var(--borda);padding-top:18px}
+  .alvo{position:relative;top:-70px;display:block;height:0}
 </style>
 </head>
 <body>
+<div class="caixa">
+  <div class="abas" role="tablist">
+    <button role="tab" aria-selected="true" data-lang="pt">Português</button>
+    <button role="tab" aria-selected="false" data-lang="en">English</button>
+    <button role="tab" aria-selected="false" data-lang="es">Español</button>
+  </div>
 
-<h1>Blockion</h1>
-<p class="date">Política de Privacidade, Termos de Uso e Suporte<br>
-Última atualização: 23 de setembro de 2026 · Vigência: 23 de setembro de 2026</p>
+  <span class="alvo" id="termos"></span>
+  <section data-sec="pt" data-parte="termos">
+<h1>Termos de Uso do Blockion</h1>
+<p class="data">Última atualização: 29 de setembro de 2026</p>
+<div class="destaque"><p>Em uma frase: o Blockion tranca os apps que você escolher e devolve tempo quando você prova que cumpriu um hábito. É uma assinatura, renova sozinha, e você cancela quando quiser direto na loja.</p></div>
+<h2>1. Aceitação</h2>
+<p>Ao instalar ou usar o Blockion você concorda com estes termos. Se não concordar, não use o app.</p>
+<h2>2. O que o app faz</h2>
+<p>O Blockion bloqueia aplicativos escolhidos por você e libera tempo de uso quando você registra a conclusão de um hábito, com conferência automática por inteligência artificial. O bloqueio depende de permissões do sistema operacional que só você pode conceder.</p>
+<h2>3. Assinatura, renovação e cancelamento</h2>
+<ul>
+<li>O acesso completo exige assinatura paga. Os preços aparecem no app antes da compra e podem variar por país.</li>
+<li>A cobrança é feita pela Apple ou pelo Google, nunca por nós. Não recebemos nem armazenamos dados do seu cartão.</li>
+<li>A assinatura <strong>renova automaticamente</strong> ao fim de cada período, a menos que você cancele com pelo menos 24 horas de antecedência.</li>
+<li>Para cancelar, use os Ajustes da sua conta Apple ou a Google Play. Apagar o app não cancela a assinatura.</li>
+<li>Reembolsos seguem as regras da loja onde você comprou. Nós não processamos reembolsos.</li>
+</ul>
+<h2>4. Uso aceitável</h2>
+<p>Você concorda em não tentar burlar, automatizar ou fraudar a conferência dos hábitos, não enviar fotos de terceiros sem consentimento, e não usar o app para qualquer finalidade ilegal.</p>
+<h2>5. Isto não é aconselhamento de saúde</h2>
+<p>O Blockion é uma ferramenta de organização de hábitos. Ele não diagnostica, trata nem previne nenhuma condição, e não substitui acompanhamento profissional. Se você acredita ter um problema sério com uso de telas, procure ajuda qualificada.</p>
+<h2>6. Suas fotos</h2>
+<p>As fotos que você envia como prova continuam sendo suas. Você nos concede apenas a licença necessária para processá-las no momento da conferência. Elas não são armazenadas por nós nem usadas para treinar modelos. Os detalhes estão na Política de Privacidade abaixo.</p>
+<h2>7. Disponibilidade e mudanças</h2>
+<p>O app pode ficar indisponível por manutenção, falha de terceiros ou mudança nas APIs da Apple e do Google. Podemos alterar, adicionar ou remover funcionalidades. Se uma mudança for relevante, avisamos no app.</p>
+<h2>8. Limitação de responsabilidade</h2>
+<p>O Blockion é fornecido no estado em que se encontra. Não garantimos que o bloqueio seja infalível: o sistema operacional pode mudar o comportamento dele a qualquer momento. Na medida permitida pela lei, nossa responsabilidade total fica limitada ao valor que você pagou nos últimos 12 meses.</p>
+<h2>9. Encerramento</h2>
+<p>Você pode parar de usar o app a qualquer momento apagando-o. Podemos encerrar seu acesso em caso de violação destes termos.</p>
+<h2>10. Lei aplicável</h2>
+<p>Estes termos são regidos pelas leis do Brasil. Fica eleito o foro do domicílio do consumidor para resolver qualquer controvérsia.</p>
+<h2>11. Contato</h2>
+<p><a href="mailto:carlos.oliveira@criarvarejo.com.br">carlos.oliveira@criarvarejo.com.br</a></p>
+</section>
+  <section data-sec="en" data-parte="termos" hidden>
+<h1>Blockion Terms of Use</h1>
+<p class="data">Last updated: September 29, 2026</p>
+<div class="destaque"><p>In one line: Blockion locks the apps you choose and gives time back when you prove you did a habit. It is a subscription, it renews by itself, and you cancel whenever you want straight from the store.</p></div>
+<h2>1. Acceptance</h2>
+<p>By installing or using Blockion you agree to these terms. If you do not agree, do not use the app.</p>
+<h2>2. What the app does</h2>
+<p>Blockion blocks apps you choose and unlocks screen time when you log a completed habit, checked automatically by artificial intelligence. Blocking depends on operating system permissions that only you can grant.</p>
+<h2>3. Subscription, renewal and cancellation</h2>
+<ul>
+<li>Full access requires a paid subscription. Prices are shown in the app before purchase and may vary by country.</li>
+<li>Billing is handled by Apple or Google, never by us. We never receive or store your card details.</li>
+<li>The subscription <strong>renews automatically</strong> at the end of each period unless you cancel at least 24 hours before it ends.</li>
+<li>To cancel, use your Apple account settings or Google Play. Deleting the app does not cancel the subscription.</li>
+<li>Refunds follow the rules of the store where you bought it. We do not process refunds.</li>
+</ul>
+<h2>4. Acceptable use</h2>
+<p>You agree not to circumvent, automate or defraud the habit check, not to submit photos of other people without their consent, and not to use the app for any unlawful purpose.</p>
+<h2>5. This is not health advice</h2>
+<p>Blockion is a habit organisation tool. It does not diagnose, treat or prevent any condition and is not a substitute for professional care. If you believe you have a serious problem with screen use, seek qualified help.</p>
+<h2>6. Your photos</h2>
+<p>The photos you submit as proof remain yours. You grant us only the licence needed to process them at the moment of the check. We do not store them and we do not use them to train models. Details are in the Privacy Policy below.</p>
+<h2>7. Availability and changes</h2>
+<p>The app may be unavailable due to maintenance, third party failure or changes to Apple and Google APIs. We may change, add or remove features. If a change is significant, we will say so in the app.</p>
+<h2>8. Limitation of liability</h2>
+<p>Blockion is provided as is. We do not guarantee that blocking is infallible: the operating system can change its behaviour at any time. To the extent permitted by law, our total liability is limited to the amount you paid in the last 12 months.</p>
+<h2>9. Termination</h2>
+<p>You may stop using the app at any time by deleting it. We may end your access if you breach these terms.</p>
+<h2>10. Governing law</h2>
+<p>These terms are governed by the laws of Brazil.</p>
+<h2>11. Contact</h2>
+<p><a href="mailto:carlos.oliveira@criarvarejo.com.br">carlos.oliveira@criarvarejo.com.br</a></p>
+</section>
+  <section data-sec="es" data-parte="termos" hidden>
+<h1>Términos de Uso de Blockion</h1>
+<p class="data">Última actualización: 29 de septiembre de 2026</p>
+<div class="destaque"><p>En una frase: Blockion bloquea las apps que elijas y te devuelve tiempo cuando compruebas que cumpliste un hábito. Es una suscripción, se renueva sola, y la cancelas cuando quieras desde la tienda.</p></div>
+<h2>1. Aceptación</h2>
+<p>Al instalar o usar Blockion aceptas estos términos. Si no estás de acuerdo, no uses la app.</p>
+<h2>2. Qué hace la app</h2>
+<p>Blockion bloquea las aplicaciones que elijas y libera tiempo de uso cuando registras un hábito cumplido, verificado automáticamente por inteligencia artificial. El bloqueo depende de permisos del sistema operativo que solo tú puedes conceder.</p>
+<h2>3. Suscripción, renovación y cancelación</h2>
+<ul>
+<li>El acceso completo requiere suscripción de pago. Los precios se muestran en la app antes de comprar y pueden variar por país.</li>
+<li>El cobro lo hace Apple o Google, nunca nosotros. No recibimos ni guardamos los datos de tu tarjeta.</li>
+<li>La suscripción <strong>se renueva automáticamente</strong> al final de cada periodo, salvo que canceles con al menos 24 horas de antelación.</li>
+<li>Para cancelar, usa los ajustes de tu cuenta de Apple o Google Play. Borrar la app no cancela la suscripción.</li>
+<li>Los reembolsos siguen las reglas de la tienda donde compraste. Nosotros no procesamos reembolsos.</li>
+</ul>
+<h2>4. Uso aceptable</h2>
+<p>Te comprometes a no eludir, automatizar ni falsear la verificación de los hábitos, a no enviar fotos de terceros sin su consentimiento, y a no usar la app con fines ilegales.</p>
+<h2>5. Esto no es consejo de salud</h2>
+<p>Blockion es una herramienta de organización de hábitos. No diagnostica, trata ni previene ninguna condición, y no sustituye el acompañamiento profesional. Si crees que tienes un problema serio con el uso de pantallas, busca ayuda calificada.</p>
+<h2>6. Tus fotos</h2>
+<p>Las fotos que envías como prueba siguen siendo tuyas. Nos concedes solo la licencia necesaria para procesarlas en el momento de la verificación. No las guardamos ni las usamos para entrenar modelos. Los detalles están en la Política de Privacidad abajo.</p>
+<h2>7. Disponibilidad y cambios</h2>
+<p>La app puede quedar no disponible por mantenimiento, fallo de terceros o cambios en las API de Apple y Google. Podemos cambiar, agregar o quitar funciones. Si un cambio es relevante, lo avisamos en la app.</p>
+<h2>8. Limitación de responsabilidad</h2>
+<p>Blockion se ofrece tal como está. No garantizamos que el bloqueo sea infalible: el sistema operativo puede cambiar su comportamiento en cualquier momento. En la medida permitida por la ley, nuestra responsabilidad total se limita a lo que pagaste en los últimos 12 meses.</p>
+<h2>9. Terminación</h2>
+<p>Puedes dejar de usar la app en cualquier momento borrándola. Podemos terminar tu acceso si incumples estos términos.</p>
+<h2>10. Ley aplicable</h2>
+<p>Estos términos se rigen por las leyes de Brasil.</p>
+<h2>11. Contacto</h2>
+<p><a href="mailto:carlos.oliveira@criarvarejo.com.br">carlos.oliveira@criarvarejo.com.br</a></p>
+</section>
 
-<nav>
-  <a href="#privacidade">Privacidade</a>
-  <a href="#termos">Termos de Uso</a>
-  <a href="#suporte">Suporte</a>
-</nav>
+  <span class="alvo" id="privacidade"></span>
+  <section data-sec="pt" data-parte="priv">
+    <h1>Política de Privacidade do Blockion</h1>
+    <p class="data">Última atualização: 29 de setembro de 2026</p>
 
-<!-- ============ PRIVACIDADE ============ -->
-<h1 id="privacidade">Política de Privacidade</h1>
+    <div class="destaque">
+      <p>O resumo: o Blockion não vende seus dados, não tem anúncios e não guarda as fotos que você tira. O que o app sabe sobre o seu uso do celular nunca sai do aparelho.</p>
+    </div>
 
-<p>Esta Política descreve como o aplicativo Blockion ("Blockion", "app", "nós")
-coleta, usa, compartilha e protege seus dados. Estamos em conformidade com a
-Lei Geral de Proteção de Dados (Lei nº 13.709/2018, a LGPD).</p>
+    <h2>1. Quem trata seus dados</h2>
+    <p>O Blockion é desenvolvido e operado por Carlos Oliveira. Para qualquer assunto de privacidade, fale com <a href="mailto:carlos.oliveira@criarvarejo.com.br">carlos.oliveira@criarvarejo.com.br</a>.</p>
 
-<h2>1. Quem somos</h2>
-<p>O Blockion é desenvolvido e operado por <strong>Vitor Vasconcellos Dias</strong>,
-pessoa física, com contato pelo e-mail
-<a href="mailto:contatoblockion@gmail.com">contatoblockion@gmail.com</a>.
-Para fins da LGPD, atuamos como <strong>controlador</strong> dos seus dados.</p>
+    <h2>2. O que o app coleta</h2>
+    <table>
+      <tr><th>Dado</th><th>Onde fica</th><th>Para quê</th></tr>
+      <tr><td>Seu nome ou apelido e as respostas do onboarding</td><td>Só no seu aparelho</td><td>Personalizar as telas e calcular a sua meta</td></tr>
+      <tr><td>Quais apps você escolheu bloquear e por quanto tempo</td><td>Só no seu aparelho</td><td>Aplicar o bloqueio</td></tr>
+      <tr><td>Foto da prova do hábito</td><td>Enviada para análise e descartada em seguida</td><td>Confirmar que você cumpriu a tarefa</td></tr>
+      <tr><td>Estado da sua assinatura</td><td>RevenueCat, Apple e Google</td><td>Liberar o acesso pago</td></tr>
+      <tr><td>Identificador anônimo de instalação</td><td>RevenueCat</td><td>Ligar a compra ao aparelho certo</td></tr>
+    </table>
 
-<h2>2. O que o Blockion NÃO consegue ver</h2>
-<div class="box">
-<p><strong>Quais apps você bloqueou.</strong> O bloqueio usa o Tempo de Uso da
-Apple (Family Controls). A Apple entrega a sua seleção em forma de códigos
-anônimos e opacos. Não conseguimos ler o nome nem o identificador de nenhum
-app, mesmo que quiséssemos. Esses códigos ficam guardados apenas no seu
-aparelho.</p>
-<p><strong>Quanto tempo você passa em cada app.</strong> Não solicitamos o
-direito de acesso a dados de uso (<code>app-and-website-usage</code>) e não
-temos acesso ao seu relatório de Tempo de Uso.</p>
+    <h2>3. Sobre o seu tempo de tela</h2>
+    <p>No iPhone, o bloqueio usa a API de Tempo de Uso da Apple (<em>Screen Time / Family Controls</em>). Por decisão da própria Apple, esses dados são processados dentro do aparelho e nem o Blockion nem ninguém mais consegue lê-los ou enviá-los para fora. No Android, o app usa a API de Acessibilidade apenas para identificar qual app está em primeiro plano e fechar a tela quando ele estiver bloqueado. Nada do que você faz dentro dos apps é lido, gravado ou transmitido.</p>
+
+    <h2>4. Sobre as fotos</h2>
+    <p>Quando você fotografa a prova de um hábito, a imagem é enviada por conexão criptografada ao nosso servidor de verificação, que a repassa a um modelo de inteligência artificial da Anthropic (Claude) apenas para responder se a foto corresponde à tarefa. A imagem não é gravada em disco por nós, não é usada para treinar nenhum modelo e é descartada assim que a resposta volta. A única coisa que fica no seu aparelho é o resultado: aprovado ou não.</p>
+    <p>A foto da tela de boas-vindas, aquela do "deixa eu ver se você é bonito", não sai do seu celular em momento nenhum. Ela é uma brincadeira e não é enviada a lugar algum.</p>
+
+    <h2>5. Com quem compartilhamos</h2>
+    <ul>
+      <li><strong>Apple e Google</strong> — processam o pagamento da assinatura. Nós não vemos o seu cartão.</li>
+      <li><strong>RevenueCat</strong> — administra a assinatura e nos diz se ela está ativa.</li>
+      <li><strong>Cloudflare</strong> — hospeda o servidor que recebe a foto da prova.</li>
+      <li><strong>Anthropic</strong> — analisa a foto da prova e responde sim ou não.</li>
+    </ul>
+    <p>Não há anunciantes, corretores de dados nem qualquer venda de informação pessoal.</p>
+
+    <h2>6. Por quanto tempo guardamos</h2>
+    <p>As fotos: não guardamos. As suas respostas e configurações: enquanto o app estiver instalado. Apagar o Blockion apaga tudo isso junto. Os registros de assinatura ficam com a Apple, o Google e o RevenueCat pelo prazo que a lei fiscal exige.</p>
+
+    <h2>7. Seus direitos</h2>
+    <p>Pela LGPD (Lei 13.709/2018) e pelo GDPR, você pode pedir acesso, correção, portabilidade ou exclusão dos seus dados, e também revogar consentimentos. Como quase tudo fica no seu próprio aparelho, apagar o app já resolve a maior parte. Para o resto, escreva para o e-mail do item 1: respondemos em até 15 dias.</p>
+
+    <h2>8. Menores de idade</h2>
+    <p>O Blockion não é destinado a menores de 13 anos e não coleta dados de quem tenha menos que isso conscientemente. Se você é responsável por uma criança e acha que ela nos enviou algum dado, escreva para nós e apagamos.</p>
+
+    <h2>9. Mudanças nesta política</h2>
+    <p>Se algo mudar, a data no topo muda junto e a nova versão passa a valer a partir da publicação aqui.</p>
+  </section>
+  <section data-sec="en" data-parte="priv" hidden>
+    <h1>Blockion Privacy Policy</h1>
+    <p class="data">Last updated: September 29, 2026</p>
+
+    <div class="destaque">
+      <p>The short version: Blockion does not sell your data, shows no ads, and does not keep the photos you take. What the app knows about your phone usage never leaves your device.</p>
+    </div>
+
+    <h2>1. Who handles your data</h2>
+    <p>Blockion is built and operated by Carlos Oliveira. For anything privacy related, write to <a href="mailto:carlos.oliveira@criarvarejo.com.br">carlos.oliveira@criarvarejo.com.br</a>.</p>
+
+    <h2>2. What the app collects</h2>
+    <table>
+      <tr><th>Data</th><th>Where it lives</th><th>Why</th></tr>
+      <tr><td>Your name and your onboarding answers</td><td>On your device only</td><td>Personalise the screens and work out your goal</td></tr>
+      <tr><td>Which apps you chose to block, and for how long</td><td>On your device only</td><td>Apply the block</td></tr>
+      <tr><td>The habit proof photo</td><td>Sent for review, then discarded</td><td>Confirm you did the task</td></tr>
+      <tr><td>Your subscription status</td><td>RevenueCat, Apple and Google</td><td>Unlock paid access</td></tr>
+      <tr><td>Anonymous install identifier</td><td>RevenueCat</td><td>Attach the purchase to the right device</td></tr>
+    </table>
+
+    <h2>3. About your screen time</h2>
+    <p>On iPhone, blocking uses Apple's Screen Time / Family Controls API. By Apple's own design that data is processed on the device, and neither Blockion nor anyone else can read it or send it anywhere. On Android the app uses the Accessibility API only to see which app is in the foreground and close the screen when that app is blocked. Nothing you do inside your apps is read, recorded or transmitted.</p>
+
+    <h2>4. About the photos</h2>
+    <p>When you photograph proof of a habit, the image travels over an encrypted connection to our verification server, which passes it to an Anthropic (Claude) AI model for the single purpose of answering whether the photo matches the task. We do not write the image to disk, it is not used to train any model, and it is discarded as soon as the answer comes back. Only the result stays on your phone: approved or not.</p>
+    <p>The welcome selfie, the "let me see if you are good looking" one, never leaves your phone. It is a joke and it is not sent anywhere.</p>
+
+    <h2>5. Who we share with</h2>
+    <ul>
+      <li><strong>Apple and Google</strong> — process the subscription payment. We never see your card.</li>
+      <li><strong>RevenueCat</strong> — manages the subscription and tells us whether it is active.</li>
+      <li><strong>Cloudflare</strong> — hosts the server that receives the proof photo.</li>
+      <li><strong>Anthropic</strong> — reviews the proof photo and answers yes or no.</li>
+    </ul>
+    <p>There are no advertisers, no data brokers and no sale of personal information.</p>
+
+    <h2>6. How long we keep things</h2>
+    <p>Photos: we do not keep them. Your answers and settings: for as long as the app is installed. Deleting Blockion deletes all of it. Subscription records stay with Apple, Google and RevenueCat for as long as tax law requires.</p>
+
+    <h2>7. Your rights</h2>
+    <p>Under Brazil's LGPD and the GDPR you can request access, correction, portability or deletion of your data, and withdraw consent. Since almost everything lives on your own device, deleting the app already covers most of it. For the rest, write to the address in section 1: we answer within 15 days.</p>
+
+    <h2>8. Children</h2>
+    <p>Blockion is not intended for children under 13 and does not knowingly collect their data. If you are a guardian and believe a child sent us data, write to us and we will delete it.</p>
+
+    <h2>9. Changes</h2>
+    <p>If anything changes, the date at the top changes with it, and the new version applies from the moment it is published here.</p>
+  </section>
+  <section data-sec="es" data-parte="priv" hidden>
+    <h1>Política de Privacidad de Blockion</h1>
+    <p class="data">Última actualización: 29 de septiembre de 2026</p>
+
+    <div class="destaque">
+      <p>En resumen: Blockion no vende tus datos, no tiene publicidad y no guarda las fotos que tomas. Lo que la app sabe sobre tu uso del celular nunca sale del aparato.</p>
+    </div>
+
+    <h2>1. Quién trata tus datos</h2>
+    <p>Blockion es desarrollada y operada por Carlos Oliveira. Para cualquier tema de privacidad, escribe a <a href="mailto:carlos.oliveira@criarvarejo.com.br">carlos.oliveira@criarvarejo.com.br</a>.</p>
+
+    <h2>2. Qué recoge la app</h2>
+    <table>
+      <tr><th>Dato</th><th>Dónde queda</th><th>Para qué</th></tr>
+      <tr><td>Tu nombre y tus respuestas del onboarding</td><td>Solo en tu aparato</td><td>Personalizar las pantallas y calcular tu meta</td></tr>
+      <tr><td>Qué apps elegiste bloquear y por cuánto tiempo</td><td>Solo en tu aparato</td><td>Aplicar el bloqueo</td></tr>
+      <tr><td>La foto de la prueba del hábito</td><td>Enviada para análisis y descartada enseguida</td><td>Confirmar que cumpliste la tarea</td></tr>
+      <tr><td>Estado de tu suscripción</td><td>RevenueCat, Apple y Google</td><td>Liberar el acceso de pago</td></tr>
+      <tr><td>Identificador anónimo de instalación</td><td>RevenueCat</td><td>Vincular la compra al aparato correcto</td></tr>
+    </table>
+
+    <h2>3. Sobre tu tiempo de pantalla</h2>
+    <p>En iPhone, el bloqueo usa la API de Tiempo de Uso de Apple (Screen Time / Family Controls). Por decisión de la propia Apple, esos datos se procesan dentro del aparato y ni Blockion ni nadie más puede leerlos o enviarlos afuera. En Android, la app usa la API de Accesibilidad solo para identificar qué app está en primer plano y cerrar la pantalla cuando está bloqueada. Nada de lo que haces dentro de tus apps se lee, se graba ni se transmite.</p>
+
+    <h2>4. Sobre las fotos</h2>
+    <p>Cuando fotografías la prueba de un hábito, la imagen viaja por una conexión cifrada a nuestro servidor de verificación, que la pasa a un modelo de inteligencia artificial de Anthropic (Claude) con el único fin de responder si la foto corresponde a la tarea. No guardamos la imagen en disco, no se usa para entrenar ningún modelo y se descarta apenas vuelve la respuesta. En tu aparato solo queda el resultado: aprobado o no.</p>
+    <p>La selfie de bienvenida, la del "déjame ver si eres guapo", nunca sale de tu celular. Es una broma y no se envía a ninguna parte.</p>
+
+    <h2>5. Con quién compartimos</h2>
+    <ul>
+      <li><strong>Apple y Google</strong> — procesan el pago de la suscripción. Nosotros nunca vemos tu tarjeta.</li>
+      <li><strong>RevenueCat</strong> — administra la suscripción y nos dice si está activa.</li>
+      <li><strong>Cloudflare</strong> — aloja el servidor que recibe la foto de la prueba.</li>
+      <li><strong>Anthropic</strong> — analiza la foto de la prueba y responde sí o no.</li>
+    </ul>
+    <p>No hay anunciantes, ni corredores de datos, ni venta alguna de información personal.</p>
+
+    <h2>6. Cuánto tiempo guardamos</h2>
+    <p>Las fotos: no las guardamos. Tus respuestas y ajustes: mientras la app esté instalada. Borrar Blockion borra todo eso. Los registros de suscripción quedan con Apple, Google y RevenueCat por el plazo que exige la ley fiscal.</p>
+
+    <h2>7. Tus derechos</h2>
+    <p>Por la LGPD brasileña y por el GDPR puedes pedir acceso, corrección, portabilidad o eliminación de tus datos, y retirar tu consentimiento. Como casi todo queda en tu propio aparato, borrar la app ya resuelve la mayor parte. Para lo demás, escribe al correo del punto 1: respondemos en hasta 15 días.</p>
+
+    <h2>8. Menores de edad</h2>
+    <p>Blockion no está dirigida a menores de 13 años y no recoge sus datos a sabiendas. Si eres responsable de un niño y crees que nos envió algún dato, escríbenos y lo borramos.</p>
+
+    <h2>9. Cambios</h2>
+    <p>Si algo cambia, la fecha de arriba cambia también, y la nueva versión rige desde su publicación aquí.</p>
+  </section>
+
+  <footer>Blockion</footer>
 </div>
-
-<h2>3. Dados que coletamos</h2>
-<p>Coletamos o mínimo necessário para o app funcionar. A maior parte das suas
-informações fica salva no seu próprio aparelho.</p>
-
-<h3>Ficam no seu aparelho</h3>
-<ul>
-  <li>A seleção de apps, categorias e sites bloqueados (em forma de códigos opacos)</li>
-  <li>Respostas do onboarding: seus objetivos e hábitos escolhidos</li>
-  <li>Seu saldo de minutos e o horário em que o bloqueio volta</li>
-  <li>Histórico de hábitos cumpridos e sua sequência de dias</li>
-  <li>Preferências e configurações do app</li>
-</ul>
-
-<h3>São enviados aos nossos servidores</h3>
-<ul>
-  <li><strong>Identificador anônimo</strong> criado pelo app, usado para guardar
-  seu progresso e restaurar sua assinatura ao trocar de aparelho. Não está
-  ligado ao seu nome, e-mail ou telefone.</li>
-  <li><strong>Saldo de minutos e sequência de dias</strong>, para que você não
-  perca o progresso ao trocar de iPhone.</li>
-  <li><strong>Status da assinatura</strong> (ativa ou expirada). Os dados de
-  pagamento ficam com a Apple. O Blockion nunca tem acesso ao seu cartão.</li>
-  <li><strong>Dados técnicos</strong>: modelo do aparelho, versão do iOS,
-  idioma e fuso horário, para diagnóstico de falhas.</li>
-  <li><strong>Eventos de uso anônimos</strong>: telas visitadas e ações
-  realizadas dentro do Blockion, sem identificação pessoal.</li>
-  <li><strong>Token de notificação</strong>, apenas se você autorizar
-  notificações.</li>
-</ul>
-
-<h3>Nunca coletamos</h3>
-<p>E-mail, dados bancários, número de cartão, localização, agenda de contatos,
-microfone, sua galeria de fotos, ou qualquer dado de uso dos apps que você
-bloqueou.</p>
-
-<h2>4. Saúde e atividade física</h2>
-<p>Se você escolher um hábito de caminhada ou treino, o Blockion pede permissão
-para ler dados do app Saúde (passos e treinos).</p>
-<div class="box">
-<p>Esses dados são lidos <strong>dentro do seu iPhone</strong> e usados apenas
-para confirmar que o hábito foi cumprido. <strong>Nunca são enviados aos
-nossos servidores, nunca são compartilhados com terceiros e nunca são usados
-para publicidade.</strong> Você pode revogar essa permissão a qualquer momento
-em Ajustes &rsaquo; Saúde &rsaquo; Acesso a Dados e Dispositivos.</p>
-</div>
-
-<h2>5. Câmera e fotos</h2>
-<p>Alguns hábitos podem ser confirmados por foto. Isso é <strong>sempre
-opcional</strong>. Há hábitos que não usam câmera, e você nunca é obrigado a
-escolher um que use.</p>
-<p>Quando você usa um hábito com foto:</p>
-<ul>
-  <li>A foto é <strong>tirada na hora</strong>, pela câmera dentro do app.
-  Nunca acessamos a sua galeria.</li>
-  <li>A imagem é enviada a um serviço de análise automática
-  (<strong>Google Gemini</strong>) apenas para verificar se corresponde ao
-  hábito escolhido.</li>
-  <li><strong>A foto é descartada imediatamente após a verificação.</strong>
-  Não armazenamos a imagem em nenhum momento.</li>
-  <li>Guardamos apenas o resultado (aprovado ou não), o hábito e o horário.</li>
-  <li>As imagens <strong>não são usadas para treinar modelos de
-  inteligência artificial.</strong></li>
-  <li>Antes da primeira foto, pedimos seu consentimento específico e
-  explicamos o que acontece com ela.</li>
-</ul>
-
-<h2>6. Como usamos seus dados</h2>
-<ul>
-  <li>Fazer o app funcionar: aplicar e remover o bloqueio, guardar seu saldo de minutos</li>
-  <li>Verificar se um hábito foi cumprido</li>
-  <li>Restaurar seu progresso ao trocar de aparelho</li>
-  <li>Validar sua assinatura junto à Apple e ao RevenueCat</li>
-  <li>Enviar notificações de lembrete, apenas se você autorizar</li>
-  <li>Diagnosticar falhas técnicas e melhorar o app</li>
-  <li>Prevenir fraudes na concessão de minutos</li>
-  <li>Cumprir obrigações legais</li>
-</ul>
-
-<h2>7. Compartilhamento com terceiros</h2>
-<p>Compartilhamos dados estritamente operacionais com os seguintes
-processadores:</p>
-<ul>
-  <li><strong>Apple (App Store / StoreKit)</strong>: processa a compra da assinatura</li>
-  <li><strong>RevenueCat</strong>: valida os recibos da Apple e gerencia o status da assinatura</li>
-  <li><strong>Google Firebase</strong>: guarda o progresso, envia notificações, relatórios de falha e estatísticas agregadas</li>
-  <li><strong>Google Gemini</strong>: verificação automática de fotos, quando você usa um hábito com câmera</li>
-</ul>
-<p><strong>Nunca vendemos seus dados. Nunca compartilhamos com anunciantes ou
-redes sociais.</strong></p>
-
-<h2>8. Base legal (LGPD)</h2>
-<ul>
-  <li><strong>Execução de contrato (Art. 7º, V)</strong>: processar o pagamento e entregar o serviço</li>
-  <li><strong>Consentimento (Art. 7º, I)</strong>: notificações, acesso ao app Saúde, uso da câmera e estatísticas opcionais. Você pode revogar a qualquer momento</li>
-  <li><strong>Legítimo interesse (Art. 7º, IX)</strong>: diagnóstico de falhas e prevenção a fraudes</li>
-  <li><strong>Cumprimento de obrigação legal (Art. 7º, II)</strong>: quando exigido por autoridade competente</li>
-</ul>
-
-<h2>9. Armazenamento e segurança</h2>
-<p>A maior parte dos seus dados fica salva no seu próprio aparelho. Os dados
-mínimos processados pelos parceiros acima ficam em servidores nos Estados
-Unidos, com criptografia em trânsito (HTTPS/TLS 1.2+) e em repouso. Aplicamos
-boas práticas de segurança, mas nenhum sistema é 100% imune. Em caso de
-incidente relevante, você será notificado conforme a LGPD.</p>
-
-<h2>10. Retenção</h2>
-<ul>
-  <li><strong>Dados no aparelho:</strong> removidos quando você desinstala o app</li>
-  <li><strong>Fotos de verificação:</strong> não são retidas, e sim descartadas logo após a análise</li>
-  <li><strong>Progresso no servidor:</strong> mantido enquanto sua conta existir; apagado em até 30 dias após o pedido de exclusão</li>
-  <li><strong>Dados de assinatura:</strong> seguem a política de retenção da Apple e do RevenueCat, e exigências legais de prevenção a fraude (até 5 anos)</li>
-</ul>
-
-<h2>11. Seus direitos como titular (LGPD Art. 18)</h2>
-<p>A qualquer momento, você pode:</p>
-<ul>
-  <li>Confirmar se tratamos seus dados</li>
-  <li>Acessar uma cópia dos seus dados</li>
-  <li>Corrigir dados incompletos, inexatos ou desatualizados</li>
-  <li>Solicitar a anonimização, bloqueio ou eliminação</li>
-  <li>Revogar o consentimento</li>
-  <li><strong>Apagar sua conta e todos os dados associados</strong>: dentro do app, em Ajustes &rsaquo; Conta &rsaquo; Excluir conta</li>
-</ul>
-<p>Para exercer qualquer desses direitos, escreva para
-<a href="mailto:contatoblockion@gmail.com">contatoblockion@gmail.com</a>.
-Respondemos em até <strong>15 dias úteis</strong>.</p>
-
-<h2>12. Idade mínima</h2>
-<p>O Blockion é destinado a maiores de 18 anos. Não coletamos intencionalmente
-dados de menores de idade. Se identificarmos dados de um menor, eles serão
-eliminados.</p>
-
-<h2>13. Cookies e rastreadores</h2>
-<p>O Blockion é um aplicativo nativo iOS e não usa cookies. <strong>Não usamos o
-IDFA</strong> (Identifier for Advertisers) e não rastreamos você entre apps ou
-sites de terceiros.</p>
-
-<h2>14. Mudanças nesta política</h2>
-<p>Podemos atualizar esta política sempre que necessário. Em caso de mudanças
-relevantes, avisaremos dentro do app antes de a mudança entrar em vigor. A
-versão sempre disponível aqui é a vigente.</p>
-
-<hr>
-
-<!-- ============ TERMOS ============ -->
-<h1 id="termos">Termos de Uso</h1>
-
-<p>Estes Termos de Uso ("Termos") regulam o uso do aplicativo Blockion. Ao baixar,
-instalar ou usar o app, você concorda com estes Termos. Se não concorda, por
-favor não use o app.</p>
-
-<h2>1. Sobre o Blockion</h2>
-<p>O Blockion é um aplicativo de autocontrole e bem-estar digital. Ele bloqueia,
-no seu próprio aparelho e por sua escolha, os aplicativos e sites que você
-selecionar, e libera o acesso por um tempo determinado quando você cumpre um
-hábito: caminhada, sessão de foco, treino ou tarefa confirmada por foto.</p>
-
-<div class="box warn">
-<p><strong>⚠ Importante: não é tratamento médico.</strong> O Blockion não é
-serviço de saúde, terapia, aconselhamento psicológico ou tratamento clínico.
-As ferramentas oferecidas não substituem atendimento profissional
-especializado e não diagnosticam nem tratam nenhuma condição.</p>
-<p>Se você ou alguém próximo enfrenta sofrimento psíquico intenso ou
-pensamentos de automutilação ou suicídio, procure ajuda imediatamente:</p>
-<p>• <strong>CVV, Centro de Valorização da Vida</strong>: ligue <strong>188</strong> (24h, gratuito) ou acesse cvv.org.br<br>
-• <strong>CAPS (SUS)</strong>: procure o Centro de Atenção Psicossocial mais próximo, com atendimento gratuito<br>
-• <strong>Emergência</strong>: SAMU 192</p>
-</div>
-
-<h2>2. Elegibilidade</h2>
-<p>Você precisa ter pelo menos <strong>18 anos</strong> para usar o Blockion. Ao
-usar o app, você declara que tem idade legal e capacidade civil para aceitar
-estes Termos.</p>
-
-<h2>3. Requisitos técnicos</h2>
-<p>O Blockion funciona em iPhone com <strong>iOS 16 ou superior</strong>. Para
-bloquear apps, ele depende do recurso <strong>Tempo de Uso</strong> da Apple,
-que exige um código de bloqueio configurado no aparelho e uma conta iCloud
-ativa. O iOS permite apenas <strong>um</strong> aplicativo de controle de tela
-autorizado por aparelho ao mesmo tempo.</p>
-
-<h2>4. Bloqueio de apps</h2>
-<p>Você escolhe quais apps e sites quer bloquear. O bloqueio é executado pelo
-próprio sistema operacional, dentro do seu iPhone. O Blockion não escolhe apps
-por você e não enxerga quais apps você bloqueou.</p>
-<p>O Blockion é uma ferramenta de <strong>autocontrole individual</strong>. Não é
-destinado a controle parental sobre terceiros nem a uso em contexto
-organizacional ou corporativo.</p>
-
-<h2>5. Assinatura</h2>
-<p>O Blockion funciona por assinatura. <strong>É necessária uma assinatura ativa
-para usar o app.</strong> Os planos e valores são exibidos dentro do app,
-antes da compra, com o preço e o período de renovação visíveis na mesma tela
-do botão de compra.</p>
-
-<h3>5.1. Renovação automática</h3>
-<p>A assinatura é renovada automaticamente ao fim de cada período. O valor é
-cobrado pela Apple no método de pagamento associado ao seu Apple ID, a menos
-que você cancele pelo menos 24 horas antes da data de renovação.</p>
-
-<h3>5.2. Como cancelar</h3>
-<p>Ajustes do iPhone &rsaquo; seu nome &rsaquo; Assinaturas &rsaquo; Blockion
-&rsaquo; Cancelar Assinatura. Você também pode cancelar em
-apps.apple.com/account/subscriptions.</p>
-
-<h3>5.3. Reembolso</h3>
-<p>Reembolsos são processados <strong>exclusivamente pela Apple</strong>,
-conforme a política da App Store. Solicite em reportaproblem.apple.com. O Blockion
-não tem como conceder reembolso direto.</p>
-
-<h3>5.4. Restaurar compras</h3>
-<p>Se você trocou de iPhone ou reinstalou o app, use o botão "Restaurar
-compras" na tela de assinatura, desde que esteja logado no mesmo Apple ID que
-fez a compra.</p>
-
-<h2>6. Uso aceitável</h2>
-<p>Você concorda em:</p>
-<ul>
-  <li>Não usar o app para fins ilegais ou prejudiciais</li>
-  <li>Não tentar fazer engenharia reversa, descompilar ou contornar mecanismos de proteção</li>
-  <li>Não fraudar a verificação de hábitos, inclusive por meio de imagens falsas, automações ou manipulação do relógio do aparelho</li>
-  <li>Não automatizar ações nem sobrecarregar os serviços</li>
-</ul>
-<p>Podemos suspender ou encerrar o acesso de quem descumprir estas regras.</p>
-
-<h2>7. Sobre atividade física</h2>
-<p>O Blockion não é profissional de saúde e não substitui orientação médica ou de
-educação física. Faça os exercícios no seu limite, respeitando o seu corpo. Se
-você tem alguma condição de saúde ou dúvida, procure um profissional antes de
-começar. Você é responsável por praticar com segurança.</p>
-
-<h2>8. Propriedade intelectual</h2>
-<p>Todo o conteúdo do app, incluindo o nome Blockion, logotipo, identidade
-visual, textos, design, ícones e código, pertence a Vitor Vasconcellos Dias e
-é protegido pela legislação de propriedade intelectual (Lei nº 9.610/98 e Lei
-nº 9.279/96). O uso do app concede a você uma licença pessoal, intransferível,
-não exclusiva e revogável, sem qualquer outro direito.</p>
-
-<h2>9. Limitação de responsabilidade</h2>
-<p>O Blockion é fornecido "como está" e "conforme disponível". Fazemos o nosso
-melhor para que funcione bem, mas <strong>não garantimos que será livre de
-erros, ininterrupto, nem que produzirá qualquer resultado específico.</strong>
-Em particular, não garantimos que você vai reduzir seu tempo de tela. Isso
-depende de você.</p>
-<p>O bloqueio depende de recursos do sistema operacional da Apple que estão
-fora do nosso controle. Falhas, atualizações do iOS ou alterações nas
-permissões do aparelho podem afetar o funcionamento.</p>
-<p>Na máxima extensão permitida em lei, Vitor Vasconcellos Dias não se
-responsabiliza por danos indiretos, lucros cessantes, perda de dados ou
-consequências de decisões tomadas com base no conteúdo do app.</p>
-
-<h2>10. Modificações</h2>
-<p>Podemos modificar estes Termos a qualquer momento. Mudanças significativas
-serão comunicadas no app com antecedência razoável. O uso continuado após a
-mudança equivale a aceitação dos novos Termos.</p>
-
-<h2>11. Encerramento</h2>
-<p>Você pode parar de usar o Blockion quando quiser, desinstalando o app e
-cancelando a assinatura na App Store. Podemos encerrar ou suspender o acesso
-em caso de descumprimento destes Termos.</p>
-
-<h2>12. Lei aplicável e foro</h2>
-<p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica
-eleito o foro da comarca do domicílio do usuário no Brasil para dirimir
-quaisquer dúvidas, sem prejuízo das normas consumeristas aplicáveis.</p>
-
-<hr>
-
-<!-- ============ SUPORTE ============ -->
-<h1 id="suporte">Suporte</h1>
-<p>Problema com o app, dúvida sobre a assinatura ou pedido sobre seus dados?
-Escreva para
-<a href="mailto:contatoblockion@gmail.com">contatoblockion@gmail.com</a>.
-Respondemos em até 2 dias úteis.</p>
-
-<h2>Perguntas frequentes</h2>
-
-<h3>O bloqueio não está funcionando</h3>
-<p>Verifique em Ajustes &rsaquo; Tempo de Uso se a permissão do Blockion continua
-ativa. Se você tiver outro app de controle de tela instalado, apenas um pode
-estar autorizado por vez no iPhone.</p>
-
-<h3>Aparece "outro app já está autorizado"</h3>
-<p>O iOS permite apenas um app de controle de tela autorizado por aparelho.
-Remova a autorização do outro app em Ajustes &rsaquo; Tempo de Uso e tente de
-novo.</p>
-
-<h3>Meus apps sumiram da lista de bloqueados</h3>
-<p>O iOS às vezes invalida a seleção. Abra o Blockion e escolha os apps de novo,
-leva alguns segundos.</p>
-
-<h3>Cumpri o hábito e não ganhei os minutos</h3>
-<p>Confira se a permissão do app Saúde está ativa (para caminhada e treino) e
-se o app estava aberto durante o cronômetro (para sessões de foco). Se o
-problema continuar, escreva para o e-mail acima com o horário aproximado.</p>
-
-<h3>Como cancelo a assinatura?</h3>
-<p>Ajustes &rsaquo; seu nome &rsaquo; Assinaturas &rsaquo; Blockion &rsaquo;
-Cancelar assinatura. O cancelamento é feito pela Apple, não por nós.</p>
-
-<h3>Quero apagar minha conta e meus dados</h3>
-<p>Dentro do app: Ajustes &rsaquo; Conta &rsaquo; Excluir conta. Ou escreva
-para o e-mail acima.</p>
-
-<h3>Quais iPhones funcionam?</h3>
-<p>iPhone com iOS 16 ou superior, com código de bloqueio configurado e conta
-iCloud ativa.</p>
-
-<footer>
-Blockion · Vitor Vasconcellos Dias<br>
-<a href="mailto:contatoblockion@gmail.com">contatoblockion@gmail.com</a>
-</footer>
-
+<script>
+  var botoes = document.querySelectorAll('.abas button');
+  var secoes = document.querySelectorAll('section[data-sec]');
+  function mostrar(codigo) {
+    botoes.forEach(function (b) {
+      b.setAttribute('aria-selected', b.dataset.lang === codigo ? 'true' : 'false');
+    });
+    secoes.forEach(function (s) { s.hidden = s.dataset.sec !== codigo; });
+    document.documentElement.lang = codigo === 'pt' ? 'pt-BR' : codigo;
+  }
+  botoes.forEach(function (b) {
+    b.addEventListener('click', function () {
+      mostrar(b.dataset.lang);
+      if (location.hash) {
+        var alvo = document.querySelector(location.hash);
+        if (alvo) alvo.scrollIntoView();
+      }
+    });
+  });
+  var doNavegador = (navigator.language || 'pt').slice(0, 2).toLowerCase();
+  if (doNavegador === 'en' || doNavegador === 'es') mostrar(doNavegador);
+  if (location.hash) {
+    var a = document.querySelector(location.hash);
+    if (a) a.scrollIntoView();
+  }
+</script>
 </body>
 </html>
