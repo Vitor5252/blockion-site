@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&display=swap">
 <style>
   :root{--fundo:#060B0A;--superficie:#111A18;--borda:#1E2A27;--acento:#3FE0B0;--sec:#8FA39E;--texto:#C7D4D0;
-    --ouro:#F5B33C;
+    --ouro:#F5B33C;--perigo:#FF8A80;--apagado:#5B6B67;
     /* A condensada manda no titulo e no numero. O corpo e o texto legal
        ficam na fonte do sistema: condensada em texto corrido cansa. */
     --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif}
@@ -384,30 +384,72 @@
   .lp-fone .bicho canvas{display:block;width:104px;height:auto}
   .lp-fone .tempao{font-family:var(--display);text-align:center;color:#fff;
     font-size:40px;font-weight:800;letter-spacing:.3px;line-height:1;
-    margin-top:6px}
-  .lp-fone .cart{margin-top:13px;background:var(--superficie);
-    border:1px solid rgba(63,224,176,.28);border-radius:14px;
-    padding:11px 12px 13px;text-align:center}
-  .lp-fone .cart .r{font-family:var(--display);color:var(--acento);
+    margin-top:6px;transition:color .22s}
+  /* No app o numero embaixo do Ion fica apagado com a bateria vazia
+     (corDoTexto: bat.quaseVazia ? Cores.apagado : Colors.white). */
+  .lp-fone .tempao.apagado{color:var(--apagado)}
+  /* O CARTAO DE ESTADO, com a mesma anatomia do app (_Cartao em
+     home_screen.dart): rotulo em caixa alta com icone, o NUMERO grande
+     quando o estado tem numero, a frase quando nao tem, e a legenda
+     apagada embaixo. Tres degraus centralizados, nao uma linha.
+     A cor vem do corDaCarga do app: verde acima de 40%, ouro entre 15 e
+     40, vermelho abaixo de 15. Era tudo verde aqui, inclusive com os
+     apps trancados. */
+  .lp-fone .cart{--ce:var(--acento);--ce28:rgba(63,224,176,.28);
+    margin-top:13px;background:var(--superficie);
+    border:1px solid var(--ce28);border-radius:14px;
+    padding:11px 12px 13px;text-align:center;
+    /* a altura do estado mais alto, pra pagina nao pular a cada toque */
+    min-height:86px;box-sizing:border-box;
+    transition:border-color .22s}
+  .lp-fone .cart.meia{--ce:var(--ouro);--ce28:rgba(245,179,60,.3)}
+  .lp-fone .cart.vazia{--ce:var(--perigo);--ce28:rgba(255,138,128,.32)}
+  .lp-fone .cart .r{display:flex;align-items:center;justify-content:center;
+    gap:5px;font-family:var(--display);color:var(--ce);
     font-size:11px;font-weight:700;letter-spacing:1.8px;line-height:1}
-  /* A frase no lugar do numero: cheia quer dizer carga igual a
-     capacidade, entao repetir o numero aqui era repetir o que esta logo
-     acima, grande. Saiu do app no pac47 e sai da maquete junto. */
-  .lp-fone .cart .f{color:var(--acento);font-size:12.5px;font-weight:800;
-    line-height:1.2;margin-top:7px}
+  .lp-fone .cart .r svg{width:10px;height:10px;flex:0 0 auto}
+  /* O numero grande do cartao, que no app e' o unico que anda sozinho:
+     quanto falta pra bateria ganhar mais um minuto. 4s trancado valem
+     1s de carga, entao a conta vai de 4m00s a 0m00s e recomeca. */
+  .lp-fone .cart .n{font-family:var(--display);color:var(--ce);
+    font-size:22px;font-weight:800;line-height:1;margin-top:6px;
+    font-variant-numeric:tabular-nums}
+  /* A frase entra NO LUGAR do numero, nos estados que nao tem numero. */
+  .lp-fone .cart .f{color:var(--ce);font-size:12px;font-weight:800;
+    line-height:1.2;margin-top:6px}
+  .lp-fone .cart .s{color:var(--apagado);font-size:9px;line-height:1.3;
+    margin-top:5px}
   .lp-fone .bt{margin-top:14px;height:42px;border-radius:13px;
     background:var(--acento);color:#04100C;font-family:var(--display);
     font-size:15px;font-weight:800;letter-spacing:1.8px;
     text-transform:uppercase;display:flex;align-items:center;
-    justify-content:center}
-  .lp-fone .barra{position:relative;display:flex;align-items:center;justify-content:space-around;
-    margin:16px -16px -20px;padding:10px 0 14px;background:var(--superficie);
-    border-top:1px solid var(--borda)}
-  .lp-fone .barra i{display:block;width:17px;height:17px;border-radius:5px;
-    background:#2A3431}
-  .lp-fone .barra .meio{width:40px;height:40px;border-radius:50%;
+    justify-content:center;gap:7px;border:1px solid transparent;
+    transition:background .22s,color .22s,border-color .22s}
+  .lp-fone .bt svg{width:15px;height:15px;flex:0 0 auto}
+  /* Com a bateria em zero os apps TRANCAM, e o botao de abrir tranca
+     junto. Antes a maquete mostrava "ABRIR MEUS APPS" verde e
+     convidativo logo embaixo de um numero baixo: o contrario do que o
+     app faz. */
+  .lp-fone .bt.travado{background:transparent;color:#6E7D79;
+    border-color:#2A3431;letter-spacing:1.3px}
+  /* A BARRA DE ABAS e' uma PILULA que flutua, nao uma faixa colada no
+     pe' da tela: no app sao 64 de altura, 18 de margem dos dois lados,
+     canto totalmente redondo e sombra embaixo (_BarraDeAbas). E as duas
+     abas laterais tem icone E rotulo em caixa alta condensada - aqui
+     eram dois quadradinhos cinza sem nada. */
+  .lp-fone .barra{position:relative;display:flex;align-items:center;
+    justify-content:space-around;margin:18px 12px -6px;height:43px;
+    background:var(--superficie);border:1px solid var(--borda);
+    border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+  .lp-fone .barra .aba{display:flex;flex-direction:column;
+    align-items:center;gap:1.5px;color:var(--apagado);line-height:1}
+  .lp-fone .barra .aba svg{width:14px;height:14px}
+  .lp-fone .barra .aba span{font-family:var(--display);font-size:8px;
+    font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+  .lp-fone .barra .meio{width:41px;height:41px;border-radius:50%;
     background:var(--acento);box-shadow:0 0 16px rgba(63,224,176,.45);
-    margin-top:-14px}
+    /* no app o circulo sobe 16 acima da pilula de 64; aqui, 11 de 43 */
+    margin-top:-11px;border:3px solid var(--fundo)}
   @media (max-width:880px){
     .lp-aparelho{width:280px}
     .lp-fone{width:260px}
@@ -469,8 +511,8 @@
       <div class="lp-fone">
         <div class="topo">
           <div class="nome">Olá, Vitor</div>
-          <div class="frase">7 dias seguidos. Quem passa do sétimo quase
-          nunca volta atrás.</div>
+          <div class="frase">7 dias. Quem passa do sétimo quase nunca
+          volta atrás.</div>
         </div>
         <div class="bicho">
           <!-- CANVAS, nao imagem. Sairam dois .webp de 25KB (o quadro
@@ -481,18 +523,22 @@
                   aria-label="Íon, o mascote do Blockion"
                   role="img"></canvas>
         </div>
-        <div class="tempao" id="ion-tempo">2h 30min</div>
-        <div class="cart">
-          <div class="r" id="ion-rotulo">&#9889; Bateria cheia</div>
-          <div class="f" id="ion-frase">Guardado pra quando você quiser.</div>
+        <div class="tempao" id="ion-tempo">60min</div>
+        <div class="cart meia" id="ion-cart">
+          <div class="r" id="ion-rotulo"></div>
+          <div class="n" id="ion-num">3m 12s</div>
+          <div class="f" id="ion-frase" hidden></div>
+          <div class="s" id="ion-sub">até mais 1 minuto de bateria</div>
         </div>
-        <div class="bt">Abrir meus apps</div>
-        <div class="barra"><i></i>
+        <div class="bt" id="ion-abrir">Abrir meus apps</div>
+        <div class="barra">
+          <span class="aba"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.5 18.5l6-6 4 4L22 6.9l-1.4-1.4-7.1 8.1-4-4L2 17z"/></svg><span>Evolução</span></span>
           <button class="meio" id="ion-botao" type="button"
                   aria-label="Cumpri um hábito, recarregar a bateria">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.3 2.5 5.9 13.1a.7.7 0 0 0 .6 1.1h4.2l-1.1 7.1a.5.5 0 0 0 .9.4l7.6-10.8a.7.7 0 0 0-.6-1.1h-4.3l1.1-6.9a.5.5 0 0 0-.9-.4z"/></svg>
           </button>
-        <i></i></div>
+          <span class="aba"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.25.41.48.41h3.84c.24 0 .44-.17.48-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.49.49 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg><span>Ajustes</span></span>
+        </div>
       </div>
       </div>
       <p class="lp-dica">
@@ -1502,10 +1548,19 @@ function mistura(a, b, t) {
   var parado = window.matchMedia
     && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- o estado que o desenho le' */
-  var CARGA_BAIXA = 0.34;
-  var alvo = CARGA_BAIXA;      // pra onde a carga esta indo
-  var carga = CARGA_BAIXA;     // onde ela esta agora
+  /* ---- o estado que o desenho le'
+     A maquete comecava em 0.34 da meta, que dava 51min na tela. O 51
+     nao queria dizer nada: era um numero escolhido pra parecer "no
+     meio". Agora a bateria tem os TRES degraus que o app tem de
+     verdade - vazia, carregando, cheia - e cada toque no raio anda um
+     degrau, invertendo o sentido nas pontas, como uma mare:
+     1h -> cheia -> 1h -> zero (os apps trancam) -> 1h -> cheia ... */
+  var META_MIN = 150;                       // 2h30, a meta do exemplo
+  var DEGRAUS = [0, 60 / META_MIN, 1];      // zero, 1h, meta cheia
+  var NIVEL = 1;                            // abre em 1h
+  var SENTIDO = 1;                          // e o primeiro toque sobe
+  var alvo = DEGRAUS[NIVEL];   // pra onde a carga esta indo
+  var carga = alvo;            // onde ela esta agora
   var festa = 0;
   var piscada = 0;
   var olhada = 0;
@@ -1573,28 +1628,86 @@ function mistura(a, b, t) {
      saem da MESMA animacao, senao o relogio pula pro valor final
      enquanto o liquido ainda esta subindo. */
   var alvoTexto = document.getElementById('ion-tempo');
-  var META_MIN = 150; // 2h30, a meta do exemplo
+  /* Abaixo de duas horas a maquete escreve em minutos ("60min"), nao em
+     hora. Na landing o numero grande e' argumento, e "60" le' maior que
+     "1h"; de 2h pra cima vira hora, senao "150min" nao diz nada. O app
+     em si escreve "1h" - aqui e' cartaz, nao tela de produto. */
   function formatar(min) {
-    var h = Math.floor(min / 60), m = Math.round(min % 60);
-    if (h <= 0) return m + 'min';
-    if (m === 0) return h + 'h';
-    return h + 'h ' + m + 'min';
+    var n = Math.round(min);
+    if (n < 120) return n + 'min';
+    var h = Math.floor(n / 60), m = n % 60;
+    return m === 0 ? h + 'h' : h + 'h ' + m + 'min';
   }
   /* O cartao de estado acompanha a carga, como no app: dizer "bateria
-     cheia" com 51 minutos na tela era a maquete se contradizendo. */
+     cheia" com um numero baixo na tela era a maquete se contradizendo. */
   var alvoRotulo = document.getElementById('ion-rotulo');
   var alvoFrase = document.getElementById('ion-frase');
+  var alvoCart = document.getElementById('ion-cart');
+  var alvoAbrir = document.getElementById('ion-abrir');
+  var alvoNum = document.getElementById('ion-num');
+  var alvoSub = document.getElementById('ion-sub');
+  var CADEADO = '<svg viewBox="0 0 24 24" fill="currentColor"'
+    + ' aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2'
+    + ' 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0'
+    + ' 0 0-5-5zm-3 8V7a3 3 0 0 1 6 0v3H9z"/></svg>';
+  var PILHA = '<svg viewBox="0 0 24 24" fill="currentColor"'
+    + ' aria-hidden="true"><path d="M15.7 4H14V2h-4v2H8.3C7.6 4 7 4.6 7'
+    + ' 5.3v15.4C7 21.4 7.6 22 8.3 22h7.4c.7 0 1.3-.6 1.3-1.3V5.3C17'
+    + ' 4.6 16.4 4 15.7 4z"/></svg>';
+  /* Os tres estados com os textos do app (_Estado em home_screen.dart)
+     e a mesma anatomia: icone + rotulo, depois o NUMERO ou a frase, e a
+     legenda apagada. Antes era um raio de emoji e tres frases
+     inventadas, todas verdes.
+     O unico corte e' na legenda do trancado, que no app diz "cumpra um
+     habito LA EMBAIXO": aqui nao ha lista de habitos embaixo, e a parte
+     do "ou espere, cada 1h devolve 15 min" ja esta na pagina. */
   var ESTADOS = {
-    cheia: ['\u26A1 Bateria cheia', 'Guardado pra quando você quiser.'],
-    meio:  ['\u26A1 Carregando', 'Cada hora trancado devolve 15 min.'],
-    vazia: ['\u26A1 Bateria vazia', 'O Íon dormiu e os apps pararam.']
+    cheia: { cls: '',      ico: PILHA,   rot: 'Bateria cheia',
+             num: null,    frase: 'Guardado pra quando você quiser.',
+             sub: null },
+    meio:  { cls: 'meia',  ico: CADEADO, rot: 'Carregando',
+             num: true,    frase: null,
+             sub: 'até mais 1 minuto de bateria' },
+    vazia: { cls: 'vazia', ico: CADEADO, rot: 'Trancado',
+             num: null,    frase: 'Seus apps estão trancados',
+             sub: 'Cumpra um hábito pra recarregar de uma vez.' }
   };
+  /* O cronometro do estado carregando. No app 4s trancado valem 1s de
+     carga, entao o que falta pro numero grande virar mais um minuto vai
+     de 4m00s a 0m00s e recomeca. E' o unico numero do app que anda
+     sozinho, e aqui ele anda igual. */
+  var sobraSeg = 192;
+  var ultimoSeg = 0;
+  function relogio() {
+    var m = Math.floor(sobraSeg / 60), sg = sobraSeg % 60;
+    return m + 'm ' + (sg < 10 ? '0' : '') + sg + 's';
+  }
   function escrever() {
-    if (alvoTexto) alvoTexto.textContent = formatar(carga * META_MIN);
-    var e = carga >= 0.999 ? ESTADOS.cheia
-      : (carga <= 0.004 ? ESTADOS.vazia : ESTADOS.meio);
-    if (alvoRotulo) alvoRotulo.innerHTML = e[0];
-    if (alvoFrase) alvoFrase.textContent = e[1];
+    var vazia = carga <= 0.004;
+    if (alvoTexto) {
+      alvoTexto.textContent = formatar(carga * META_MIN);
+      alvoTexto.classList.toggle('apagado', vazia);
+    }
+    var e = carga >= 0.999 ? ESTADOS.cheia : (vazia ? ESTADOS.vazia : ESTADOS.meio);
+    if (alvoRotulo) alvoRotulo.innerHTML = e.ico + '<span>' + e.rot + '</span>';
+    if (alvoCart) alvoCart.className = 'cart' + (e.cls ? ' ' + e.cls : '');
+    if (alvoNum) {
+      alvoNum.hidden = !e.num;
+      if (e.num) alvoNum.textContent = relogio();
+    }
+    if (alvoFrase) {
+      alvoFrase.hidden = !e.frase;
+      if (e.frase) alvoFrase.textContent = e.frase;
+    }
+    if (alvoSub) {
+      alvoSub.hidden = !e.sub;
+      if (e.sub) alvoSub.textContent = e.sub;
+    }
+    if (alvoAbrir) {
+      alvoAbrir.classList.toggle('travado', vazia);
+      alvoAbrir.innerHTML = vazia ? CADEADO + 'Apps trancados'
+                                  : 'Abrir meus apps';
+    }
   }
 
   function quadro(agora) {
@@ -1637,6 +1750,14 @@ function mistura(a, b, t) {
     }
     sono = carga <= 0.004 ? ((t / 3400) % 1) : -1;
 
+    /* O cronometro do cartao, um passo por segundo de verdade. */
+    var seg = Math.floor(t / 1000);
+    if (seg !== ultimoSeg) {
+      ultimoSeg = seg;
+      sobraSeg = sobraSeg > 0 ? sobraSeg - 1 : 240;
+      if (alvoNum && !alvoNum.hidden) alvoNum.textContent = relogio();
+    }
+
     desenhar();
     requestAnimationFrame(quadro);
   }
@@ -1650,9 +1771,15 @@ function mistura(a, b, t) {
   var dica = document.getElementById('ion-dica');
   if (bt) {
     bt.addEventListener('click', function () {
-      var cheio = alvo > 0.9;
-      alvo = cheio ? CARGA_BAIXA : 1;
-      if (!cheio) {
+      /* Anda um degrau no sentido atual e inverte na ponta, entao
+         nenhum toque fica sem efeito: 1h, cheia, 1h, zero, 1h, cheia. */
+      NIVEL += SENTIDO;
+      if (NIVEL >= DEGRAUS.length - 1) { NIVEL = DEGRAUS.length - 1; SENTIDO = -1; }
+      else if (NIVEL <= 0) { NIVEL = 0; SENTIDO = 1; }
+      var antes = alvo;
+      alvo = DEGRAUS[NIVEL];
+      if (alvo > antes) {
+        // o Ion so comemora quando GANHA tempo
         festaEm = performance.now() - t0;
         festa = 0.001;
       }
@@ -1672,7 +1799,7 @@ function mistura(a, b, t) {
   }
 
   escrever();
-  if (parado) { carga = 1; alvo = 1; escrever(); desenhar(); return; }
+  if (parado) { carga = alvo; escrever(); desenhar(); return; }
   requestAnimationFrame(quadro);
 })();
 
