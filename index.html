@@ -322,7 +322,10 @@
     .lp-topo nav{display:none}
     .lp-hero .lp{grid-template-columns:1fr;padding-top:44px;
       padding-bottom:48px}
-    .lp-bicho{order:-1}
+    /* O celular vinha ANTES do texto no celular (order:-1). Invertido:
+       no telefone a pessoa le' a promessa e ve' os dois botoes de loja
+       primeiro, e so' depois rola pro aparelho. */
+    .lp-bicho{order:0;margin-top:12px}
     .lp-passos,.lp-tres{grid-template-columns:1fr}
     .lp-conta{grid-template-columns:1fr;gap:16px;padding:24px}
     .lp-secao{padding:56px 0}
