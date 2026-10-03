@@ -53,9 +53,27 @@
     0%{transform:scale(1);opacity:.55}
     70%,100%{transform:scale(1.5);opacity:0}
   }
-  .lp-dica{margin:16px 0 0;text-align:center;font-family:var(--display);
-    font-size:14px;font-weight:700;letter-spacing:1.4px;
-    text-transform:uppercase;color:var(--acento);min-height:1.3em}
+  /* A dica e' uma PILULA presa embaixo do aparelho, com um biquinho
+     apontando pro botao. Como texto solto ela nao se lia como rotulo do
+     botao, e era a unica coisa da pagina sem caixa em volta.
+     O texto tem 13 caracteres nos dois estados ("Toque no raio" e
+     "Toque de novo"), entao a pilula nunca muda de largura: rotulo que
+     cresce e encolhe a cada toque e' pior do que rotulo nenhum. */
+  .lp-dica{position:relative;margin:18px 0 0;
+    display:inline-flex;align-items:center;gap:7px;
+    padding:8px 16px 7px;border-radius:999px;
+    background:rgba(63,224,176,.08);
+    border:1px solid rgba(63,224,176,.32);
+    font-family:var(--display);font-size:14px;font-weight:700;
+    letter-spacing:1.5px;text-transform:uppercase;color:var(--acento);
+    white-space:nowrap}
+  .lp-dica::before{content:"";position:absolute;top:-5px;left:50%;
+    width:9px;height:9px;margin-left:-4.5px;transform:rotate(45deg);
+    background:#0c1a17;border-left:1px solid rgba(63,224,176,.32);
+    border-top:1px solid rgba(63,224,176,.32)}
+  @media (max-width:420px){
+    .lp-dica{font-size:12.5px;letter-spacing:1.1px;padding:7px 13px 6px}
+  }
 
   /* --------- A ENTRADA DOS BLOCOS.
      Sobem 14px e aparecem quando entram na tela, uma vez so'. Dose
@@ -160,7 +178,12 @@
     max-width:30em}
   .lp-acoes{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:14px}
   .lp-pe{font-size:13px;color:#5B6B67;margin:0}
-  .lp-bicho{position:relative;display:flex;justify-content:center}
+  /* COLUNA, nao linha. Era `display:flex` sem direcao, entao o celular
+     e a dica ficavam LADO A LADO: a dica esticava 626px de altura ao
+     lado do aparelho no desktop e virava uma coluna fina de letras no
+     celular. Foi isso que ele viu de feio. */
+  .lp-bicho{position:relative;display:flex;flex-direction:column;
+    align-items:center}
   .lp-bicho::before{content:"";position:absolute;top:50%;left:50%;
     width:118%;aspect-ratio:1;transform:translate(-50%,-50%);
     border-radius:50%;
@@ -300,7 +323,6 @@
     .lp-hero .lp{grid-template-columns:1fr;padding-top:44px;
       padding-bottom:48px}
     .lp-bicho{order:-1}
-    .lp-bicho img{width:min(220px,58%)}
     .lp-passos,.lp-tres{grid-template-columns:1fr}
     .lp-conta{grid-template-columns:1fr;gap:16px;padding:24px}
     .lp-secao{padding:56px 0}
@@ -353,6 +375,10 @@
     margin-top:6px}
   .lp-fone .bicho{display:flex;justify-content:center;margin:4px 0 2px}
   .lp-fone .bicho img{width:104px;height:auto}
+  /* O canvas precisa da largura em CSS: sem ela ele usa o atributo
+     `width` (208), e o Ion saia com o DOBRO do tamanho, enchendo a tela
+     do celular. */
+  .lp-fone .bicho canvas{display:block;width:104px;height:auto}
   .lp-fone .tempao{font-family:var(--display);text-align:center;color:#fff;
     font-size:40px;font-weight:800;letter-spacing:.3px;line-height:1;
     margin-top:6px}
@@ -382,6 +408,10 @@
   @media (max-width:880px){
     .lp-aparelho{width:280px}
     .lp-fone{width:260px}
+    /* Aqui, e nao na media query de cima: aquela vem ANTES da regra
+       base de 104px no arquivo e perdia por ordem, com a mesma
+       especificidade. */
+    .lp-fone .bicho canvas{width:96px}
   }
 </style>
 </head>
@@ -462,7 +492,10 @@
         <i></i></div>
       </div>
       </div>
-      <p class="lp-dica" id="ion-dica">Toque no raio</p>
+      <p class="lp-dica">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M13.3 2.5 5.9 13.1a.7.7 0 0 0 .6 1.1h4.2l-1.1 7.1a.5.5 0 0 0 .9.4l7.6-10.8a.7.7 0 0 0-.6-1.1h-4.3l1.1-6.9a.5.5 0 0 0-.9-.4z"/></svg>
+        <span id="ion-dica">Toque no raio</span>
+      </p>
     </div>
   </div>
 </section>
@@ -1626,9 +1659,11 @@ function mistura(a, b, t) {
       void bt.offsetWidth;
       bt.classList.add('pulou');
       if (dica) {
-        dica.textContent = cheio
-          ? 'E desce enquanto você usa'
-          : 'Cumpriu um hábito, voltou tudo';
+        // Os dois textos tem 13 caracteres: a pilula nao muda de
+        // largura a cada toque. O que conta a historia e' o CARTAO de
+        // estado dentro do celular, nao este rotulo - rotulo de botao
+        // serve pra dizer o que fazer, nao pra narrar.
+        dica.textContent = 'Toque de novo';
       }
     });
   }
