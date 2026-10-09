@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blockion: Bloqueio de Apps</title>
-<meta name="description" content="O Blockion dá uma bateria de tempo por dia para os apps que prendem você. Gastou, trancou. Cumpriu um hábito, recarregou. iPhone e Android.">
+<meta name="description" content="Você ganha uma bateria de tempo por dia. Só os apps que te prendem gastam essa bateria. Quando ela zera, eles trancam. iPhone e Android.">
 <meta name="theme-color" content="#060B0A">
 <!-- O Ion desenhado no proprio endereco, sem arquivo separado: o
      repositorio do site recebe so o index.html. -->
@@ -14,8 +14,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Blockion">
-<meta property="og:title" content="Seus apps trancam. Até você cumprir um hábito.">
-<meta property="og:description" content="Uma bateria de tempo por dia para os apps que prendem você. Zerou, trancou. Cumpriu um hábito, recarregou.">
+<meta property="og:title" content="Seus apps ficam trancados. Até você cumprir um hábito.">
+<meta property="og:description" content="Você ganha uma bateria de tempo por dia. Só os apps que te prendem gastam essa bateria. Quando ela zera, eles trancam. Cumpra um hábito e ela recarrega.">
 <meta property="og:url" content="https://vitor5252.github.io/blockion-site/">
 <meta name="twitter:card" content="summary_large_image">
 <!-- A MESMA fonte de display do app (pac47): BarlowCondensed. O site e o
@@ -31,6 +31,17 @@
        ficam na fonte do sistema: condensada em texto corrido cansa. */
     --display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif}
   *{box-sizing:border-box}
+
+  /* ------------------------------------------- a rolagem suave do menu
+     Clicar em "Como funciona", "Habitos", "Duvidas" ou "Suporte" passa
+     a deslizar a pagina em vez de pular. Quem pediu menos animacao no
+     sistema continua com o pulo seco.
+     O scroll-margin-top tira o titulo de baixo do cabecalho fixo, que
+     tem 62px. Os destinos .alvo (termos, privacidade, suporte) ja tem
+     o desvio proprio (top:-70px) e nao entram aqui. */
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  section[id]{scroll-margin-top:78px}
 
   /* Abertura: o topo e o heroi ENTRAM em vez de aparecer de uma vez.
      E' animacao de CSS puro, sem javascript, de proposito: se algo
@@ -518,10 +529,10 @@
 <section class="lp-hero" id="inicio">
   <div class="lp">
     <div>
-      <h1 class="lp-tit">Seus apps trancam.<br>Até você cumprir <em>um hábito</em>.</h1>
-      <p class="lp-sub">Você tem uma bateria de tempo por dia. Os apps que
-      prendem você passam a dividir essa bateria. Gastou, trancou.
-      Cumpriu um hábito, recarregou.</p>
+      <h1 class="lp-tit">Seus apps ficam trancados.<br>Até você cumprir <em>um hábito</em>.</h1>
+      <p class="lp-sub">Você ganha uma bateria de tempo por dia. Só os
+      apps que te prendem gastam essa bateria. Quando ela zera, eles
+      trancam. Cumpra um hábito e ela recarrega.</p>
       <div class="lp-lojas">
         <a class="lp-loja" href="#" data-loja="ios"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg><span class="cols"><small data-acao>Baixar na</small><b>App Store</b></span></a>
         <a class="lp-loja" href="#" data-loja="android"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><g stroke="#fff" stroke-width=".5" stroke-linejoin="round"><path d="M4 2.5 13 12 4 21.5z" opacity=".55"/><path d="M4 2.5 16.6 9.5 13 12z" opacity=".85"/><path d="M4 21.5 16.6 14.5 13 12z" opacity=".7"/><path d="M16.6 9.5 20.8 11.3a.8.8 0 0 1 0 1.4L16.6 14.5 13 12z" opacity="1"/></g></svg><span class="cols"><small data-acao>Disponível no</small><b>Google Play</b></span></a>
@@ -555,7 +566,7 @@
           <div class="r" id="ion-rotulo"></div>
           <div class="n" id="ion-num">3m 12s</div>
           <div class="f" id="ion-frase" hidden></div>
-          <div class="s" id="ion-sub">até mais 1 minuto de bateria</div>
+          <div class="s" id="ion-sub">para ganhar mais 1 minuto</div>
         </div>
         <div class="bt" id="ion-abrir">Abrir meus apps</div>
         <div class="barra">
@@ -602,7 +613,7 @@
       <div class="lp-passo off surge">
         <div class="cerco"><img src="data:image/webp;base64,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" width="280" height="358"
           alt="Íon dormindo, bateria vazia"></div>
-        <b>Zerou, trancou</b>
+        <b>Zerou, eles trancam</b>
         <p>O Íon dorme e os apps param de abrir. Não é uma telinha por
         cima: o bloqueio é do próprio sistema.</p>
       </div>
@@ -629,16 +640,16 @@
   <div class="lp">
     <p class="lp-rotulo">A conta</p>
     <h2 class="lp-h2">6 horas por dia são 91 dias por ano.</h2>
-    <p class="lp-texto">Não é força de expressão, é divisão. Seis horas
-    vezes 365 dão 91 dias inteiros, de 24 horas cada um, olhando tela. O
-    Blockion não manda você parar. Ele mostra o número e devolve o
-    pedaço que você decidir recuperar.</p>
+    <p class="lp-texto">Seis horas por dia, somadas ao longo de um ano,
+    dão 91 dias de tela. Três meses inteiros. O Blockion não manda
+    você parar: ele devolve uma parte desse tempo, em troca de
+    hábitos.</p>
     <div class="lp-conta surge">
       <div class="lp-numerao"><b data-conta="91">91</b><span>dias por ano</span></div>
-      <p class="lp-texto">No app a conta é feita com o <b>seu</b> número:
-      quanto você disse que gastava, menos a meta que você escolheu, vezes
-      o ano. E depois do primeiro dia ela deixa de ser estimativa e passa
-      a ser o seu histórico de verdade.</p>
+      <p class="lp-texto">No app a conta usa o <b>seu</b> número: o tempo
+      que você disse que gasta, menos a meta que escolheu, vezes 365. Do
+      segundo dia em diante não é mais estimativa, é o seu
+      histórico.</p>
     </div>
   </div>
 </section>
@@ -672,10 +683,10 @@
     <h2 class="lp-h2">Não dá para mentir para o Íon.</h2>
     <p class="lp-texto">Você fotografa a prova: a cama arrumada, o prato
     com comida de verdade, a pia vazia. A foto é conferida na hora e
-    descartada em seguida, e não fica guardada em lugar nenhum, não
-    treina nada e não vai pra rede social nenhuma. Flexão e agachamento o
-    app conta pela câmera, dentro do próprio aparelho. E na sessão de
-    foco não há o que fotografar: os apps ficam trancados até o fim, e o
+    descartada em seguida. Ela não fica guardada, não treina nenhum
+    modelo e não vai pra rede social nenhuma. Flexão e agachamento o app
+    conta pela câmera, dentro do próprio aparelho. E na sessão de foco
+    não há o que fotografar: os apps ficam trancados até o fim, e o
     próprio bloqueio é a prova.</p>
   </div>
 </section>
@@ -1695,7 +1706,7 @@ function mistura(a, b, t) {
              sub: null },
     meio:  { cls: 'meia',  ico: CADEADO, rot: 'Carregando',
              num: true,    frase: null,
-             sub: 'até mais 1 minuto de bateria' },
+             sub: 'para ganhar mais 1 minuto' },
     vazia: { cls: 'vazia', ico: CADEADO, rot: 'Trancado',
              num: null,    frase: 'Seus apps estão trancados',
              sub: 'Cumpra um hábito pra recarregar de uma vez.' }
